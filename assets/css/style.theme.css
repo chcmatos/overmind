@@ -380,6 +380,8 @@ body {
   --dimen-switch-border-width: 0.25rem;
   --dimen-switch-border-radius: 2.5rem;
   --dimen-switch-dots: 1rem;
+  --dimen-switch-dots-top: 3px;
+  --dimen-switch-dots-left: 23px;
   --dimen-switch-dots-before-after: var(--dimen-switch-border-width);
   --dimen-switch-dots-top-after: -4px;
   --dimen-switch-dots-left-after: -26px;
@@ -455,8 +457,8 @@ body {
       border: var(--dimen-switch-border-width) solid var(--color-switch-moon-dots-border); }
       .switch label .sun-moon .dots {
         position: absolute;
-        top: 3px;
-        left: 23px;
+        top: var(--dimen-switch-dots-top);
+        left: var(--dimen-switch-dots-left);
         height: var(--dimen-switch-dots);
         width: var(--dimen-switch-dots);
         background: var(--color-switch-moon-dots-background);
