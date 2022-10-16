@@ -403,6 +403,8 @@ body {
 
 .switch {
   position: relative;
+  float: right;
+  margin: 20px;
   overflow: hidden;
   width: 7.5rem;
   height: 4rem; }
