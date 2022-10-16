@@ -1,0 +1,45 @@
+:root {
+  color-scheme: light dark;
+
+  --color-background: white;
+  --color-surface: red;
+  --color-primary: blue;
+  --color-secondary: green;
+  --color-accent: yellow;
+
+  --color-on-background: black;
+  --color-on-surface: white;
+  --color-on-primary: white;
+  --color-on-secondary: white;
+  --color-on-accent: white;
+}
+
+body.theme-dark {
+  --color-background: black;
+  --color-surface: red;
+  --color-primary: blue;
+  --color-secondary: green;
+  --color-accent: yellow;
+
+  --color-on-background: white;
+  --color-on-surface: white;
+  --color-on-primary: white;
+  --color-on-secondary: white;
+  --color-on-accent: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: black;
+    --color-surface: red;
+    --color-primary: blue;
+    --color-secondary: green;
+    --color-accent: yellow;
+
+    --color-on-background: white;
+    --color-on-surface: white;
+    --color-on-primary: white;
+    --color-on-secondary: white;
+    --color-on-accent: white;
+  }
+}

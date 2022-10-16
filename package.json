@@ -1,0 +1,35 @@
+{
+  "name": "overmind",
+  "version": "1.0.0",
+  "description": "Overmind Simple Form using day/night theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --omit-source-map-url ./assets/scss/styles.scss -o ./assets/css/",
+    "scss-w": "node-sass -w --omit-source-map-url ./assets/scss/styles.scss -o ./assets/css",
+    "watch": "npx live-server | (npm run scss-w || watch)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chcmatos/overmind.git"
+  },
+  "keywords": [
+    "Overmind",
+    "Test",
+    "Simple",
+    "Form",
+    "day",
+    "night",
+    "theme"
+  ],
+  "author": "Carlos Matos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chcmatos/overmind/issues"
+  },
+  "homepage": "https://github.com/chcmatos/overmind#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "node-sass": "^7.0.3"
+  }
+}

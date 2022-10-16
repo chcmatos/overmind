@@ -1,0 +1,109 @@
+@charset "UTF-8";
+@mixin transition($x...) {
+  -webkit-transition: $x;
+  -moz-transition: $x;
+  -ms-transition: $x;
+  -o-transition: $x;
+  transition: $x;
+}
+@mixin transform($x...) {
+  -webkit-transform: $x;
+  -moz-transform: $x;
+  -ms-transform: $x;
+  -o-transform: $x;
+  transform: $x;
+}
+@mixin animation($x...) {
+  -webkit-animation: $x;
+  -moz-animation: $x;
+  -o-animation: $x;
+  animation: $x;
+}
+@mixin animated($delay: 0s) {
+  @include animated-delay($delay);
+  @include animated-fill-mode(both);
+}
+@mixin animated-fill-mode($x) {
+  -webkit-animation-fill-mode: #{$x};
+  animation-fill-mode: #{$x};
+}
+@mixin animated-infinite() {
+  @include animated-iteration-count(infinite);
+}
+@mixin animated-iteration-count($x) {
+  -webkit-animation-iteration-count: #{$x};
+  -moz-animation-iteration-count: #{$x};
+  -o-animation-iteration-count: #{$x};
+  animation-iteration-count: #{$x};
+}
+@mixin animated-name($x) {
+  -webkit-animation-name: #{$x};
+  -moz-animation-name: #{$x};
+  -o-animation-name: #{$x};
+  animation-name: #{$x};
+}
+@mixin animated-delay($delay: 1s) {
+  -webkit-animation-delay: #{$delay};
+  -moz-animation-delay: #{$delay};
+  -o-animation-delay: #{$delay};
+  animation-delay: #{$delay};
+}
+@mixin animated-duration($duration: 1s) {
+  -webkit-animation-duration: #{$duration};
+  -moz-animation-duration: #{$duration};
+  -o-animation-duration: #{$duration};
+  animation-duration: #{$duration};
+}
+@mixin animated-timing-function($timing: ease-in-out) {
+  -webkit-animation-timing-function: #{$timing};
+  -moz-animation-timing-function: #{$timing};
+  -o-animation-timing-function: #{$timing};
+  animation-timing-function: #{$timing};
+}
+@mixin animated-fast() {
+  @include animated-duration($anim-duration-fast);
+}
+@mixin animated-faster() {
+  @include animated-duration($anim-duration-faster);
+}
+@mixin animated-slow() {
+  @include animated-duration($anim-duration-slow);
+}
+@mixin animated-slower() {
+  @include animated-duration($anim-duration-slower);
+}
+@mixin include-animated() {
+  .animated {
+    @include animated();
+  }
+  .animated.infinite {
+    @include animated-infinite();
+  }
+  @for $i from 1 through 5 {
+    .animated.delay-#{$i}s {
+      @include animated-delay($i);
+    }
+  }
+  .animated.fast {
+    @include animated-fast();
+  }
+  .animated.faster {
+    @include animated-faster();
+  }
+  .animated.slow {
+    @include animated-slow();
+  }
+  .animated.slower {
+    @include animated-slower();
+  }
+  @media (print), (prefers-reduced-motion: reduce) {
+    .animated {
+      -webkit-animation-duration: 1ms !important;
+      animation-duration: 1ms !important;
+      -webkit-transition-duration: 1ms !important;
+      transition-duration: 1ms !important;
+      -webkit-animation-iteration-count: 1 !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}

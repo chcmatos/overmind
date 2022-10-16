@@ -1,0 +1,41 @@
+@import './mixin.animations.scss';
+@import './mixin.background.scss';
+@import './mixin.frames.scss';
+
+//default light
+body {
+  background-image: url('../img/frames/000.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  @include background-size(cover);
+  @include animated-duration(2s);
+  @include animated-iteration-count(1);
+  @include animated-fill-mode(forwards);
+  @include animated-timing-function(ease-in-out);
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10000;
+
+  &.theme-light {
+    @include animated-name(backgroundThemeDay);
+  }
+
+  &.theme-dark {
+    @include animated-name(backgroundThemeNight);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url('../img/frames/039.png');
+  }
+}
+
+@include generate-key-frames-background-image($name: backgroundThemeNight);
+@include generate-key-frames-background-image(
+  $name: backgroundThemeDay,
+  $reverse: true
+);

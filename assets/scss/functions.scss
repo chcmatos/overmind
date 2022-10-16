@@ -1,0 +1,23 @@
+@function left-pad($target, $count, $char) {
+  $result: #{$target};
+  $count: $count - str-length($result);
+  @while $count > 0 {
+    $count: $count - 1;
+    $result: $char + $result;
+  }
+  @return $result;
+}
+
+@function right-pad($target, $count, $char) {
+  $result: #{$target};
+  $count: $count - str-length($result);
+  @while $count > 0 {
+    $count: $count - 1;
+    $result: $result + $char;
+  }
+  @return $result;
+}
+
+@function zero-leading($target, $count) {
+  @return left-pad($target, $count, '0');
+}

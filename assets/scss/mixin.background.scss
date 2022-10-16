@@ -1,0 +1,7 @@
+@mixin background-size($x...) {
+  -webkit-background-size: $x;
+  -moz-background-size: $x;
+  -ms-background-size: $x;
+  -o-background-size: $x;
+  background-size: $x;
+}

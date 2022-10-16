@@ -1,0 +1,37 @@
+@import './functions.scss';
+
+@mixin generate-key-frames-background-image(
+  $name,
+  $from: 1,
+  $until: 39,
+  $reverse: false
+) {
+  $total: $until - $from;
+  $perc: 0;
+  @keyframes #{$name} {
+    @for $i from $from through $until {
+      $k: $i;
+      @if ($reverse) {
+        $k: $until - $k;
+      }
+      #{round($perc) + '%'} {
+        background-image: url('../img/frames/#{zero-leading($k, 3)}.png');
+      }
+      $perc: ($i / $total) * 100;
+    }
+  }
+
+  $perc: 0;
+  @-webkit-keyframes #{$name} {
+    @for $i from $from through $until {
+      $k: $i;
+      @if ($reverse) {
+        $k: $until - $k;
+      }
+      #{round($perc) + '%'} {
+        background-image: url('../img/frames/#{zero-leading($k, 3)}.png');
+      }
+      $perc: ($i / $total) * 100;
+    }
+  }
+}
