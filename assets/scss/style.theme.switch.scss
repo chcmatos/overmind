@@ -1,10 +1,47 @@
+:root .switch {
+  --color-switch-sun-background: #f5ec59;
+  --color-switch-sun-border: #e7c65c;
+  --color-switch-sun-dots-background: #fff;
+  --color-switch-sun-toggle-color-gradient0: #78c1d5;
+  --color-switch-sun-toggle-color-gradient1: #bbe7f5;
+
+  --color-switch-moon-background: #fffdf2;
+  --color-switch-moon-dots-background: #efeedb;
+  --color-switch-moon-dots-border: #dee2c6;
+  --color-switch-moon-toggle-color-gradient0: #484848;
+  --color-switch-moon-toggle-color-gradient1: #202020;
+
+  --dimen-switch-width: 7.5rem;
+  --dimen-switch-width-half: calc(var(--dimen-switch-width) * 0.5);
+  --dimen-switch-height: 4rem;
+  --dimen-switch-border-width: 0.25rem;
+  --dimen-switch-border-radius: 2.5rem;
+  --dimen-switch-dots: 1rem;
+  --dimen-switch-dots-before-after: var(--dimen-switch-border-width);
+  --dimen-switch-dots-top-after: -4px;
+  --dimen-switch-dots-left-after: -26px;
+  --dimen-switch-dots-top-before: 18px;
+  --dimen-switch-dots-left-before: -10px;
+  --dimen-switch-dots-sun: 1.5rem;
+  --dimen-switch-dots-sun-before: 0.4rem;
+  --dimen-switch-dots-sun-after: 0.65rem;
+  --dimen-switch-dots-sun-top: 0px;
+  --dimen-switch-dots-sun-left: -20px;
+  --dimen-switch-dots-sun-top-after: 2px;
+  --dimen-switch-dots-sun-left-after: -12px;
+  --dimen-switch-dots-sun-top-before: 6px;
+  --dimen-switch-dots-sun-left-before: 14px;
+  --dimen-switch-rotate: 25deg;
+  --dimen-switch-sun-mon: 3rem;
+  --dimen-switch-sun-mon-margin: 0.5rem;
+}
+
 .switch {
   position: relative;
   float: right;
-  margin: 20px;
   overflow: hidden;
-  width: 7.5rem;
-  height: 4rem;
+  width: var(--dimen-switch-width);
+  height: var(--dimen-switch-height);
 
   input {
     position: absolute;
@@ -16,37 +53,46 @@
     //#region Transition to SUN
     &:checked {
       ~ .sun-moon {
-        left: calc(100% - 4rem);
-        background: #f5ec59;
-        border-color: #e7c65c;
-        transform: rotate(-25deg);
+        left: calc(100% - var(--dimen-switch-width-half));
+        background: var(--color-switch-sun-background);
+        border-color: var(--color-switch-sun-border);
+        transform: rotate(calc(var(--dimen-switch-rotate) * -1));
 
         .dots,
         .dots:after,
         .dots:before {
-          background: #fff;
-          border-color: #fff;
+          background: var(--color-switch-sun-dots-background);
+          border-color: var(--color-switch-sun-dots-background);
         }
 
         .dots {
-          height: 1.5rem;
-          width: 1.5rem;
-          top: 0px;
-          left: -20px;
-          transform: rotate(25deg);
+          height: var(--dimen-switch-dots-sun);
+          width: var(--dimen-switch-dots-sun);
+          top: var(--dimen-switch-dots-sun-top);
+          left: var(--dimen-switch-dots-sun-left);
+          transform: rotate(var(--dimen-switch-rotate));
           &:after {
-            height: 0.65rem;
-            width: 0.65rem;
-            top: 2px;
-            left: -12px;
+            height: var(--dimen-switch-dots-sun-after);
+            width: var(--dimen-switch-dots-sun-after);
+            top: var(--dimen-switch-dots-sun-top-after);
+            left: var(--dimen-switch-dots-sun-left-after);
           }
           &:before {
-            height: 0.4rem;
-            width: 0.4rem;
-            top: 6px;
-            left: 14px;
+            height: var(--dimen-switch-dots-sun-before);
+            width: var(--dimen-switch-dots-sun-before);
+            top: var(--dimen-switch-dots-sun-top-before);
+            left: var(--dimen-switch-dots-sun-left-before);
           }
         }
+      }
+      ~ .background {
+        border: var(--dimen-switch-border-width) solid
+          var(--color-switch-sun-toggle-color-gradient0);
+        background: linear-gradient(
+          to right,
+          var(--color-switch-sun-toggle-color-gradient0) 0%,
+          var(--color-switch-sun-toggle-color-gradient1) 100%
+        );
       }
     }
     //#endregion
@@ -55,15 +101,16 @@
   label {
     cursor: pointer;
 
+    //#region MOON
     .sun-moon {
       .dots {
         &:after {
-          top: -4px;
-          left: -26px;
+          top: var(--dimen-switch-dots-top-after);
+          left: var(--dimen-switch-dots-left-after);
         }
         &:before {
-          top: 18px;
-          left: -10px;
+          top: var(--dimen-switch-dots-top-before);
+          left: var(--dimen-switch-dots-left-before);
         }
 
         &:after,
@@ -71,10 +118,11 @@
           position: absolute;
           content: '';
           display: block;
-          height: 0.25rem;
-          width: 0.25rem;
-          background: #efeedb;
-          border: 0.25rem solid #dee2c6;
+          height: var(--dimen-switch-dots-before-after);
+          width: var(--dimen-switch-dots-before-after);
+          background: var(--color-switch-moon-dots-background);
+          border: var(--dimen-switch-border-width) solid
+            var(--color-switch-moon-dots-border);
           border-radius: 50%;
           transition: 0.4s all ease;
         }
@@ -82,10 +130,11 @@
         position: absolute;
         top: 3px;
         left: 23px;
-        height: 1rem;
-        width: 1rem;
-        background: #efeedb;
-        border: 0.25rem solid #dee2c6;
+        height: var(--dimen-switch-dots);
+        width: var(--dimen-switch-dots);
+        background: var(--color-switch-moon-dots-background);
+        border: var(--dimen-switch-border-width) solid
+          var(--color-switch-moon-dots-border);
         border-radius: 50%;
         transition: 0.4s all ease;
       }
@@ -94,31 +143,31 @@
       position: absolute;
       left: 0;
       display: inline-block;
-      height: 3rem;
-      width: 3rem;
-      margin: 0.5rem;
-      background: #fffdf2;
+      height: var(--dimen-switch-sun-mon);
+      width: var(--dimen-switch-sun-mon);
+      margin: var(--dimen-switch-sun-mon-margin);
+      background: var(--color-switch-moon-background);
       border-radius: 50%;
       transition: all 0.5s ease;
-
-      /* Default to Moon */
-      border: 0.25rem solid #dee2c6;
+      border: var(--dimen-switch-border-width) solid
+        var(--color-switch-moon-dots-border);
     }
+    //#endregion
   }
 
   .background {
     z-index: 1;
     position: absolute;
-    width: 7.5rem;
-    height: 4rem;
-    border-radius: 2.5rem;
-    border: 0.25rem solid #202020;
-    background: linear-gradient(to right, #484848 0%, #202020 100%);
+    width: var(--dimen-switch-width);
+    height: var(--dimen-switch-height);
+    border-radius: var(--dimen-switch-border-radius);
+    border: var(--dimen-switch-border-width) solid
+      var(--color-switch-moon-toggle-color-gradient1);
+    background: linear-gradient(
+      to right,
+      var(--color-switch-moon-toggle-color-gradient0) 0%,
+      var(--color-switch-moon-toggle-color-gradient1) 100%
+    );
     transition: all 0.3s;
   }
-}
-
-.switch input:checked ~ .background {
-  border: 0.25rem solid #78c1d5;
-  background: linear-gradient(to right, #78c1d5 0%, #bbe7f5 100%);
 }

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --omit-source-map-url ./assets/scss/styles.scss -o ./assets/css/",
-    "scss-w": "node-sass -w --omit-source-map-url ./assets/scss/styles.scss -o ./assets/css",
+    "scss": "node-sass --omit-source-map-url ./assets/scss/ -o ./assets/css/",
+    "scss-w": "node-sass -w --omit-source-map-url ./assets/scss/ -o ./assets/css",
     "watch": "npx live-server | (npm run scss-w || watch)"
   },
   "repository": {
