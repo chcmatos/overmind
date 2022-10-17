@@ -1,4 +1,7 @@
+import masks from "./modules/masks.js";
+
 (() => {
+    masks.setupAll();
 
     const forward = (index) => {
         currFieldSetIndex = index + 1;
@@ -21,6 +24,24 @@
         if (!!btn) {
             btn.onclick = callback;
         }
+    };
+
+    const setupNextBtn = (fieldset, index) => {
+        setupBtn(fieldset, "input.btn-next", () => {
+            if (isAllRequiredInputFieldFilled(index)) {
+                forward(index);
+                selectFirstInputField(index + 1);
+            } else {
+                selectNonValidFieldRequired(index);
+            }
+        });
+    };
+
+    const setupPrevBtn = (fieldset, index) => {
+        setupBtn(fieldset, "input.btn-prev", () => {
+            backward(index);
+            selectFirstInputField(index - 1);
+        });
     };
 
     const selectInputField = (input, timeout) => {
@@ -48,14 +69,18 @@
     };
 
     const isValidInputField = (input) => {
-        return !!!input.value || !!!input.value.length;
+        //TODO implement input value is valid
+
+
+
+        return !!input.value || !!input.value.length;
     };
 
     const isAllRequiredInputFieldFilled = (index) => {
         const fieldset = fieldsetArr[index];
         const fields = fieldset.querySelectorAll("input:required");
         for (let field of fields) {
-            if (isValidInputField(field)) {
+            if (!isValidInputField(field)) {
                 return false;
             }
         }
@@ -66,7 +91,7 @@
         const fieldset = fieldsetArr[index];
         const fields = fieldset.querySelectorAll("input:required");
         for (let field of fields) {
-            if (isValidInputField(field)) {
+            if (!isValidInputField(field)) {
                 selectInputField(field);
                 break;
             }
@@ -100,13 +125,7 @@
     for (let i in fieldsetArr) {
         const index = parseInt(i);
         const fieldset = fieldsetArr[index];
-        setupBtn(fieldset, "input.btn-next", () => {
-            forward(index);
-            selectFirstInputField(index + 1);
-        });
-        setupBtn(fieldset, "input.btn-prev", () => {
-            backward(index);
-            selectFirstInputField(index - 1);
-        });
+        setupNextBtn(fieldset, index);
+        setupPrevBtn(fieldset, index);
     }
 })();

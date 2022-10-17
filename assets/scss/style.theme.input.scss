@@ -37,6 +37,35 @@ input {
   &.confirm {
     border-color: var(--color-confirm) !important;
   }
+
+  &[type='button'],
+  &[type='submit'] {
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0px 1px 2px var(--color-shadow);
+    background-color: var(--color-accent);
+    font-weight: bold;
+    color: var(--color-on-accent);
+
+    &:hover {
+      box-shadow: 0px 2px 2px var(--color-shadow);
+      cursor: pointer;
+    }
+    &:active {
+      box-shadow: 0px 1px 1px var(--color-shadow);
+    }
+
+    &.btn-outline {
+      background-color: var(--color-surface-secondary);
+      color: var(--color-on-surface);
+    }
+  }
+
+  &[type='submit'] {
+    &:active {
+      cursor: progress;
+    }
+  }
 }
 
 form {
@@ -50,33 +79,7 @@ form {
       color: var(--color-on-surface);
     }
   }
-}
-
-input[type='button'],
-input[type='submit'] {
-  text-transform: uppercase;
-  border: none;
-  box-shadow: 0px 1px 2px var(--color-shadow);
-  background-color: var(--color-accent);
-  font-weight: bold;
-  color: var(--color-on-accent);
-
-  &:hover {
-    box-shadow: 0px 2px 2px var(--color-shadow);
-    cursor: pointer;
-  }
-  &:active {
-    box-shadow: 0px 1px 1px var(--color-shadow);
-  }
-
-  &.btn-outline {
-    background-color: var(--color-surface-secondary);
-    color: var(--color-on-surface);
-  }
-}
-
-input[type='submit'] {
-  &:active {
-    cursor: progress;
+  input[type='text'][name$='name'] {
+    text-transform: capitalize;
   }
 }
