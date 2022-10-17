@@ -55,53 +55,76 @@
         <!--#endregion-->
 
         <!-- #region form-->
-        <form id="signup-form" method="post" action="#">
+        <form id="signup-form" method="post" action="/">
           <fieldset>
+            <!--#region first name (given-name)-->
             <input
               type="text"
               id="fname"
-              name="fname"
+              name="given-name"
               placeholder="Nome"
-              autocomplete="given-name"
+              autocomplete="on"
+              minlength="2"
+              maxlength="20"
               autofocus
               required
             />
             <span class="form-message fname">
-              Informe o seu nome
+              Informe o seu nome.
             </span>
+            <!--#endregion-->
+            <!--#region last name (family-name)-->
             <input
               type="text"
               id="lname"
-              name="lname"
+              name="family-name"
               placeholder="Sobrenome"
-              autocomplete="family-name"
+              autocomplete="on"
+              minlength="2"
+              maxlength="20"
               required
             />
-            <span class="form-message error fname">
-              Informe o seu sobrenome
+            <span class="form-message lname">
+              Informe o seu sobrenome.
             </span>
+            <!--#endregion-->
+            <!--#region form-button -->
             <div class="form-button">
               <input type="button" value="próximo" class="btn-next" />
             </div>
+            <!--#endregion-->
           </fieldset>
           <fieldset>
+            <!--#region phone number (tel-local) -->
             <input
               type="tel"
               id="tel"
-              name="tel"
+              name="tel-local"
               placeholder="Telefone"
-              autocomplete="tel-local"
+              autocomplete="on"
+              minlength="8"
               required
               autofocus
             />
+            <span class="form-message tel">
+              Informe válido para contato.
+            </span>
+            <!--#endregion-->
+            <!--#region e-mail (email) -->
             <input
               type="email"
               id="email"
               name="email"
               placeholder="E-mail"
               autocomplete="on"
+              minlength="5"
               required
             />
+            <span class="form-message email">
+              Informe o seu melhor e-mail.
+            </span>
+            <!--#endregion-->
+            <!--#region form-button -->
             <div class="form-button">
               <input
                 type="button"
@@ -110,20 +133,26 @@
               />
               <input type="button" value="próximo" class="btn-next" />
             </div>
+            <!--#endregion-->
           </fieldset>
           <fieldset>
+            <!--#region password (new-password) -->
             <input
               type="password"
               id="password"
-              name="password"
+              name="new-password"
               placeholder="Senha"
-              autocomplete="new-password"
+              autocomplete="on"
+              minlength="8"
+              maxlength="24"
               required
             />
             <span class="form-message password">
               A senha deve conter no mínimo 8 caracteres incluíndo uma letra
               maiúscula e caractere especial (_#$%!@).
             </span>
+            <!--#endregion-->
+            <!--#region confirm password (confirm-password)-->
             <input
               type="password"
               id="confirm-password"
@@ -135,6 +164,8 @@
             <span class="form-message confirm-password">
               As senhas não são iguais!
             </span>
+            <!--#endregion-->
+            <!--#region form-button-->
             <div class="form-button">
               <input
                 type="button"
@@ -143,6 +174,7 @@
               />
               <input type="submit" value="enviar" />
             </div>
+            <!--#endregion-->
           </fieldset>
         </form>
         <!--#endregion-->
