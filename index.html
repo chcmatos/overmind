@@ -6,21 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
     <title>Overmind</title>
-    <style>
-      section {
-        width: 50vw;
-        height: 70vh;
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: translate(50%, 30%);
-        border-radius: 12px;
-        border: 1px solid #dedede;
-        background: #ffffff;
-        opacity: 0.9;
-      }
-    </style>
   </head>
   <body>
     <main>
@@ -33,9 +24,99 @@
         </label>
       </div>
       <!--#endregion-->
-      <h1>Cadastre-se</h1>
+
       <section>
-        <h1></h1>
+        <h1>cadastre-se</h1>
+
+        <!--#region progressbar-->
+        <div class="progress-bar">
+          <div class="step">
+            <div class="circle">
+              <span>1</span>
+              <div class="fas fa-check"></div>
+            </div>
+            <span>Nome</span>
+          </div>
+          <div class="step">
+            <div class="circle">
+              <span>2</span>
+              <div class="fas fa-check"></div>
+            </div>
+            <span>Contato</span>
+          </div>
+          <div class="step">
+            <div class="circle">
+              <span>3</span>
+              <div class="fas fa-check"></div>
+            </div>
+            <span>Acesso</span>
+          </div>
+        </div>
+        <!--#endregion-->
+
+        <!-- #region form-->
+        <form>
+          <fieldset>
+            <input
+              type="text"
+              id="given-name"
+              name="given-name"
+              placeholder="Nome"
+              autocomplete="on"
+            />
+            <input
+              type="text"
+              id="family-name"
+              name="family-name"
+              placeholder="Sobrenome"
+              autocomplete="on"
+            />
+            <div class="form-button">
+              <input type="button" value="próximo" />
+            </div>
+          </fieldset>
+          <fieldset>
+            <input
+              type="tel"
+              id="tel-local"
+              name="tel-local"
+              placeholder="Telefone"
+              autocomplete="on"
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail"
+              autocomplete="on"
+            />
+            <div class="form-button">
+              <input type="button" value="anterior" />
+              <input type="button" value="próximo" />
+            </div>
+          </fieldset>
+          <fieldset>
+            <input
+              type="password"
+              id="new-password"
+              name="new-password"
+              placeholder="Senha"
+              autocomplete="on"
+            />
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Confirmar Senha"
+              autocomplete="on"
+            />
+            <div class="form-button">
+              <input type="button" value="anterior" />
+              <input type="submit" value="enviar" />
+            </div>
+          </fieldset>
+        </form>
+        <!--#endregion-->
       </section>
     </main>
   </body>

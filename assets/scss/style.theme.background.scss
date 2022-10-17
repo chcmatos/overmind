@@ -5,6 +5,7 @@
 //default light
 body {
   background-image: url('../img/frames/000.png');
+  background-color: var(--color-background);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
@@ -26,10 +27,8 @@ body {
   &.theme-dark {
     @include animated-name(backgroundThemeNight);
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  body {
+  @media (prefers-color-scheme: dark) {
     background-image: url('../img/frames/039.png');
   }
 }

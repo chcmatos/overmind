@@ -1,5 +1,7 @@
 @import './style.fonts.scss';
 @import './style.theme.background.scss';
+@import './style.theme.form.scss';
+@import './style.theme.input.scss';
 @import './style.theme.switch.scss';
 
 * {
@@ -7,6 +9,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  transition: all 0.1s ease-in-out;
+}
+
+*,
+*:focus,
+*:hover {
+  outline: none;
 }
 
 html,
@@ -21,8 +30,12 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+span {
   color: var(--color-on-background);
+  ~ form {
+    color: var(--color-on-surface);
+  }
 }
 
 h1 {

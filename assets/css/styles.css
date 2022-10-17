@@ -1,44 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-:root {
+:root,
+body.theme-light {
   color-scheme: light dark;
+  --color-base-surface-gradient0: #78c1d5ce;
+  --color-base-surface-gradient1: #bbe7f5ce;
   --color-background: white;
-  --color-surface: red;
-  --color-primary: blue;
-  --color-secondary: green;
-  --color-accent: yellow;
-  --color-on-background: black;
-  --color-on-surface: white;
-  --color-on-primary: white;
-  --color-on-secondary: white;
-  --color-on-accent: white; }
-
-body.theme-dark {
-  --color-background: black;
-  --color-surface: red;
-  --color-primary: blue;
-  --color-secondary: green;
-  --color-accent: yellow;
-  --color-on-background: white;
-  --color-on-surface: white;
-  --color-on-primary: white;
-  --color-on-secondary: white;
+  --color-surface: linear-gradient(
+    to right,
+    var(--color-base-surface-gradient0) 0%,
+    var(--color-base-surface-gradient1) 100%
+  );
+  --color-surface-border: var(--color-base-surface-gradient1);
+  --color-surface-secondary: #ffffffaa;
+  --color-accent: #d6a314;
+  --color-shadow: black;
+  --color-on-background: #222;
+  --color-on-surface: #222;
   --color-on-accent: white; }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --color-base-surface-gradient0: #484848ce;
+    --color-base-surface-gradient1: #202020ce;
     --color-background: black;
-    --color-surface: red;
-    --color-primary: blue;
-    --color-secondary: green;
-    --color-accent: yellow;
-    --color-on-background: white;
-    --color-on-surface: white;
-    --color-on-primary: white;
-    --color-on-secondary: white;
-    --color-on-accent: white; } }
+    --color-surface-secondary: #000000aa;
+    --color-accent: #1668ec;
+    --color-on-background: #fefefe; } }
+
+body.theme-dark {
+  --color-base-surface-gradient0: #484848ce;
+  --color-base-surface-gradient1: #202020ce;
+  --color-background: black;
+  --color-surface: linear-gradient(
+      to right,
+      var(--color-base-surface-gradient0) 0%,
+      var(--color-base-surface-gradient1) 100%
+    );
+  --color-surface-secondary: #000000aa;
+  --color-surface-border: var(--color-base-surface-gradient1);
+  --color-accent: #1668ec;
+  --color-on-background: #fefefe; }
 
 body {
   background-image: url("../img/frames/000.png");
+  background-color: var(--color-background);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
@@ -76,10 +81,9 @@ body {
     -moz-animation-name: backgroundThemeNight;
     -o-animation-name: backgroundThemeNight;
     animation-name: backgroundThemeNight; }
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-image: url("../img/frames/039.png"); } }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-image: url("../img/frames/039.png"); } }
 
 @keyframes backgroundThemeNight {
   0% {
@@ -401,6 +405,108 @@ body {
   100% {
     background-image: url("../img/frames/000.png"); } }
 
+.progress-bar {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  user-select: none; }
+  .progress-bar .step {
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    position: relative;
+    display: block; }
+    .progress-bar .step .circle {
+      height: 1.8rem;
+      width: 1.8rem;
+      border: 2px solid var(--color-on-surface);
+      display: inline-block;
+      position: relative;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      line-height: 25px; }
+      .progress-bar .step .circle span {
+        font-size: small; }
+      .progress-bar .step .circle .fa-check {
+        display: none; }
+      .progress-bar .step .circle.active {
+        border-color: var(--color-accent);
+        background-color: var(--color-accent); }
+        .progress-bar .step .circle.active .fa-check {
+          display: inherit; }
+        .progress-bar .step .circle.active span {
+          display: none; }
+        .progress-bar .step .circle.active ~ span {
+          color: var(--color-accent); }
+    .progress-bar .step span {
+      font-weight: 500;
+      font-size: 18px;
+      margin-bottom: 8px; }
+
+section {
+  min-width: 600px;
+  width: 50vw;
+  min-height: 50vh;
+  height: auto;
+  position: absolute;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  border-width: 2px;
+  border-style: thin;
+  border-color: var(--color-surface-border);
+  background: var(--color-surface);
+  overflow: hidden; }
+  section h1 {
+    padding: 16px; }
+  section form {
+    display: flex;
+    width: 300%; }
+    section form fieldset {
+      display: block;
+      border: unset !important;
+      width: 100%;
+      height: 100%;
+      padding: 16px; }
+      section form fieldset input {
+        width: 100%;
+        height: 100%;
+        margin: 10px 0; }
+      section form fieldset:nth-child(n + 2) div.form-button {
+        display: flex; }
+        section form fieldset:nth-child(n + 2) div.form-button input {
+          margin: 10px; }
+
+input {
+  min-width: 250px;
+  min-height: 50px;
+  padding: 8px;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  border-width: 1px;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: thin;
+  transition: border 0.2s ease-in-out; }
+  input:hover {
+    box-shadow: 0px 0.5px 1px var(--color-shadow); }
+  input:focus {
+    border-color: var(--color-accent);
+    border-width: 2px;
+    caret-color: var(--color-on-background);
+    box-shadow: 0px 1px 2px var(--color-shadow); }
+
+form input {
+  background-color: var(--color-surface-secondary); }
+
+input[type='button'],
+input[type='submit'] {
+  text-transform: uppercase; }
+
 :root .switch {
   --color-switch-sun-background: #f5ec59;
   --color-switch-sun-border: #e7c65c;
@@ -533,7 +639,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif; }
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.1s ease-in-out; }
+
+*,
+*:focus,
+*:hover {
+  outline: none; }
 
 html,
 body {
@@ -546,8 +658,18 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+span {
   color: var(--color-on-background); }
+  h1 ~ form,
+  h2 ~ form,
+  h3 ~ form,
+  h4 ~ form,
+  h5 ~ form,
+  h6 ~ form,
+  p ~ form,
+  span ~ form {
+    color: var(--color-on-surface); }
 
 h1 {
   font-size: xx-large; }
