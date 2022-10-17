@@ -29,7 +29,13 @@ section {
     transition: all 0.3s ease-in-out;
 
     fieldset {
-      display: block;
+      display: grid;
+      align-items: center;
+      align-content: center;
+      justify-items: stretch;
+      grid-template-columns: 1fr;
+      grid-auto-rows: minmax(60px, auto);
+      row-gap: 10px;
       border: unset !important;
       width: 100%;
       height: 100%;
@@ -38,16 +44,6 @@ section {
       input {
         width: 100%;
         height: 100%;
-        margin: 10px 0;
-      }
-
-      &:nth-child(n + 2) {
-        div.form-button {
-          display: flex;
-          input {
-            margin: 10px;
-          }
-        }
       }
 
       span {
@@ -62,6 +58,17 @@ section {
         &::first-letter {
           text-transform: uppercase;
         }
+      }
+    }
+
+    .form-button {
+      display: grid;
+    }
+
+    :nth-child(n + 2) {
+      div.form-button {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 10px;
       }
     }
 
