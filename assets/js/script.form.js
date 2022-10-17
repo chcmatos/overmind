@@ -1,4 +1,5 @@
 import masks from "./modules/masks.js";
+import validators from "./modules/validators.js";
 
 (() => {
     masks.setupAll();
@@ -69,11 +70,7 @@ import masks from "./modules/masks.js";
     };
 
     const isValidInputField = (input) => {
-        //TODO implement input value is valid
-
-
-
-        return !!input.value || !!input.value.length;
+        return validators.validate(input);
     };
 
     const isAllRequiredInputFieldFilled = (index) => {
