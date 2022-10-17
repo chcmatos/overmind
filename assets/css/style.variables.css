@@ -12,7 +12,7 @@ body.theme-light {
   --color-surface-border: var(--color-base-surface-gradient1);
   --color-surface-secondary: #ffffffaa;
   --color-accent: #d6a314;
-  --color-error: tomato;
+  --color-error: rgb(245, 59, 26);
   --color-shadow: black;
   --color-confirm: rgb(4, 109, 4);
   --color-on-background: #222;
@@ -27,6 +27,7 @@ body.theme-light {
     --color-background: black;
     --color-surface-secondary: #000000aa;
     --color-accent: #1668ec;
+    --color-error: tomato;
     --color-confirm: rgb(58, 196, 58);
     --color-on-background: #fefefe;
     --color-on-surface: #fff;
@@ -44,6 +45,7 @@ body.theme-dark {
   --color-surface-secondary: #000000aa;
   --color-surface-border: var(--color-base-surface-gradient1);
   --color-accent: #1668ec;
+  --color-error: tomato;
   --color-confirm: rgb(58, 196, 58);
   --color-on-background: #fefefe;
   --color-on-surface: #fff;

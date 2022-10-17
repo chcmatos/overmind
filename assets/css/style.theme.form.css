@@ -77,11 +77,13 @@ section {
       section form fieldset span {
         display: flex;
         text-align: left;
-        text-transform: capitalize;
+        text-transform: lowercase;
         margin: 10px;
         margin-top: 0px;
         font-size: smaller;
         font-weight: normal; }
+        section form fieldset span::first-letter {
+          text-transform: uppercase; }
     section form .form-message {
       display: none; }
       section form .form-message.error {

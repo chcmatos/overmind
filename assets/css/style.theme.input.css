@@ -19,8 +19,11 @@ input {
     opacity: 0.3;
     pointer-events: none; }
   input.error {
+    border-width: 2px;
     border-color: var(--color-error) !important;
     color: var(--color-error); }
+    input.error:focus {
+      border-width: 3px; }
   input.confirm {
     border-color: var(--color-confirm) !important; }
 

@@ -25,8 +25,13 @@ input {
   }
 
   &.error {
+    border-width: 2px;
     border-color: var(--color-error) !important;
     color: var(--color-error);
+
+    &:focus {
+      border-width: 3px;
+    }
   }
 
   &.confirm {

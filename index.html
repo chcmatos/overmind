@@ -59,6 +59,7 @@
           <fieldset>
             <input
               type="text"
+              class="error"
               id="fname"
               name="fname"
               placeholder="Nome"
@@ -66,7 +67,7 @@
               autofocus
               required
             />
-            <span class="form-message error">
+            <span class="form-message fname">
               Informe o seu nome
             </span>
             <input
@@ -77,6 +78,9 @@
               autocomplete="family-name"
               required
             />
+            <span class="form-message error fname">
+              Informe o seu sobrenome
+            </span>
             <div class="form-button">
               <input type="button" value="próximo" class="btn-next" />
             </div>

@@ -13,7 +13,7 @@ body.theme-light {
   --color-surface-border: var(--color-base-surface-gradient1);
   --color-surface-secondary: #ffffffaa;
   --color-accent: #d6a314;
-  --color-error: tomato;
+  --color-error: rgb(245, 59, 26);
   --color-shadow: black;
   --color-confirm: rgb(4, 109, 4);
   --color-on-background: #222;
@@ -28,6 +28,7 @@ body.theme-light {
     --color-background: black;
     --color-surface-secondary: #000000aa;
     --color-accent: #1668ec;
+    --color-error: tomato;
     --color-confirm: rgb(58, 196, 58);
     --color-on-background: #fefefe;
     --color-on-surface: #fff;
@@ -45,6 +46,7 @@ body.theme-dark {
   --color-surface-secondary: #000000aa;
   --color-surface-border: var(--color-base-surface-gradient1);
   --color-accent: #1668ec;
+  --color-error: tomato;
   --color-confirm: rgb(58, 196, 58);
   --color-on-background: #fefefe;
   --color-on-surface: #fff;
@@ -493,11 +495,13 @@ section {
       section form fieldset span {
         display: flex;
         text-align: left;
-        text-transform: capitalize;
+        text-transform: lowercase;
         margin: 10px;
         margin-top: 0px;
         font-size: smaller;
         font-weight: normal; }
+        section form fieldset span::first-letter {
+          text-transform: uppercase; }
     section form .form-message {
       display: none; }
       section form .form-message.error {
@@ -529,8 +533,11 @@ input {
     opacity: 0.3;
     pointer-events: none; }
   input.error {
+    border-width: 2px;
     border-color: var(--color-error) !important;
     color: var(--color-error); }
+    input.error:focus {
+      border-width: 3px; }
   input.confirm {
     border-color: var(--color-confirm) !important; }
 
