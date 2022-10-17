@@ -53,7 +53,8 @@ section {
   border-style: thin;
   border-color: var(--color-surface-border);
   background: var(--color-surface);
-  overflow: hidden; }
+  overflow: hidden;
+  user-select: none; }
   section h1 {
     padding: 16px; }
   section form {

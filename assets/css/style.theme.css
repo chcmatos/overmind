@@ -418,7 +418,8 @@ section {
   border-style: thin;
   border-color: var(--color-surface-border);
   background: var(--color-surface);
-  overflow: hidden; }
+  overflow: hidden;
+  user-select: none; }
   section h1 {
     padding: 16px; }
   section form {
@@ -565,7 +566,8 @@ form input[type='text'][name$='name'] {
   margin: var(--dimen-switch-margin);
   overflow: hidden;
   width: var(--dimen-switch-width);
-  height: var(--dimen-switch-height); }
+  height: var(--dimen-switch-height);
+  user-select: none; }
   .switch input {
     position: absolute;
     top: 0;
@@ -602,7 +604,8 @@ form input[type='text'][name$='name'] {
       border: var(--dimen-switch-border-width) solid var(--color-switch-sun-toggle-color-gradient0);
       background: linear-gradient(to right, var(--color-switch-sun-toggle-color-gradient0) 0%, var(--color-switch-sun-toggle-color-gradient1) 100%); }
   .switch label {
-    cursor: pointer; }
+    cursor: pointer;
+    user-select: none; }
     .switch label .sun-moon {
       z-index: 2;
       position: absolute;

@@ -1,3 +1,4 @@
+import { isEnterKey, isTabKey } from "./modules/mask.keys.js";
 import masks from "./modules/masks.js";
 import validators from "./modules/validators.js";
 
@@ -95,15 +96,24 @@ import validators from "./modules/validators.js";
         }
     };
 
+    const isLastInputSetFieldSelected = (index, currentField) => {
+        const fieldset = fieldsetArr[index];
+        const fields =  Array.from(fieldset.querySelectorAll("input:required"));        
+        return fields && fields.pop() === currentField;
+    }
+
     const requestNextBtnOrSubmit = (index) => {
         return invokeClick(index, "input.btn-next") ||
             invokeClick(index, "input[type='submit']");
     };
 
     window.addEventListener('keydown', function (e) {
-        if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
+        if (isEnterKey(e) || isTabKey(e)) {
             if (e.target.nodeName == 'INPUT') {
                 e.preventDefault();
+                if (isTabKey(e) && isLastInputSetFieldSelected(currFieldSetIndex, e.target)) {
+                    return false;
+                }
                 if (isAllRequiredInputFieldFilled(currFieldSetIndex)) {
                     requestNextBtnOrSubmit(currFieldSetIndex);
                 } else {

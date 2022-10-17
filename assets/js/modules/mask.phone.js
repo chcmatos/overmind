@@ -1,4 +1,4 @@
-import { isDeleteKey, isModifierKey, isNumericInput } from "./mask.keys.js";
+import { isBackspaceKey, isDeleteKey, isModifierKey, isNumericInput } from "./mask.keys.js";
 import {
     LocalPhoneHandler,
     LocalPhoneWithAreaCodeHandler,
@@ -16,7 +16,7 @@ const enforceFormat = (event) => {
 };
 
 const formatToPhone = (event) => {
-    if (isModifierKey(event) && !isDeleteKey(event)) {
+    if (isModifierKey(event) && !isDeleteKey(event) && !isBackspaceKey(event)) {
         return;
     }
 

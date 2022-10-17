@@ -18,6 +18,7 @@ section {
   border-color: var(--color-surface-border);
   background: var(--color-surface);
   overflow: hidden;
+  user-select: none;
 
   h1 {
     padding: 16px;

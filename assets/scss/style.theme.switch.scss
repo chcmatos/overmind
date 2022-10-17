@@ -46,6 +46,7 @@
   overflow: hidden;
   width: var(--dimen-switch-width);
   height: var(--dimen-switch-height);
+  user-select: none;
 
   input {
     position: absolute;
@@ -104,6 +105,7 @@
 
   label {
     cursor: pointer;
+    user-select: none;
 
     //#region MOON
     .sun-moon {

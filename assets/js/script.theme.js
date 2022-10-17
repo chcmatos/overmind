@@ -32,7 +32,7 @@
             writable: false
         },
         isThemeLight: {
-            value: () => getTheme() == THEME_LIGHT,
+            value: () => getTheme() == THEME_LIGHT || getTheme() === undefined,
             writable: false,
         },
         isThemeDark: {
