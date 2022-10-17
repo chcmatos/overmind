@@ -48,6 +48,30 @@ section {
           }
         }
       }
+
+      span {
+        display: flex;
+        text-align: left;
+        text-transform: capitalize;
+        margin: 10px;
+        margin-top: 0px;
+        font-size: smaller;
+        font-weight: normal;
+      }
+    }
+
+    .form-message {
+      display: none;
+      &.error {
+        color: var(--color-error);
+        display: inherit;
+      }
+      &.info {
+        display: inherit;
+      }
+      &.confirm {
+        color: var(--color-confirm);
+      }
     }
   }
 }

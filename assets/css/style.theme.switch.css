@@ -9,6 +9,7 @@
   --color-switch-moon-dots-border: #dee2c6;
   --color-switch-moon-toggle-color-gradient0: #484848;
   --color-switch-moon-toggle-color-gradient1: #202020;
+  --dimen-switch-margin: 16px;
   --dimen-switch-width: 7.5rem;
   --dimen-switch-width-half: calc(var(--dimen-switch-width) * 0.5);
   --dimen-switch-height: 4rem;
@@ -38,6 +39,7 @@
 .switch {
   position: relative;
   float: right;
+  margin: var(--dimen-switch-margin);
   overflow: hidden;
   width: var(--dimen-switch-width);
   height: var(--dimen-switch-height); }

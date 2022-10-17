@@ -55,33 +55,34 @@
         <!--#endregion-->
 
         <!-- #region form-->
-        <form>
+        <form style="margin-left: -200%;">
           <fieldset>
             <input
               type="text"
-              id="given-name"
-              name="given-name"
+              id="fname"
+              name="fname"
               placeholder="Nome"
-              autocomplete="on"
+              autocomplete="given-name"
+              autofocus
             />
             <input
               type="text"
-              id="family-name"
-              name="family-name"
+              id="lname"
+              name="lname"
               placeholder="Sobrenome"
-              autocomplete="on"
+              autocomplete="family-name"
             />
             <div class="form-button">
-              <input type="button" value="próximo" />
+              <input type="button" value="próximo" disabled />
             </div>
           </fieldset>
           <fieldset>
             <input
               type="tel"
-              id="tel-local"
-              name="tel-local"
+              id="tel"
+              name="tel"
               placeholder="Telefone"
-              autocomplete="on"
+              autocomplete="tel-local"
             />
             <input
               type="email"
@@ -91,28 +92,35 @@
               autocomplete="on"
             />
             <div class="form-button">
-              <input type="button" value="anterior" />
-              <input type="button" value="próximo" />
+              <input type="button" value="anterior" class="btn-outline" />
+              <input type="button" value="próximo" disabled />
             </div>
           </fieldset>
           <fieldset>
             <input
               type="password"
-              id="new-password"
-              name="new-password"
+              id="password"
+              name="password"
               placeholder="Senha"
-              autocomplete="on"
+              autocomplete="new-password"
             />
+            <span class="form-message info password">
+              A senha deve conter no mínimo 8 caracteres incluíndo uma letra
+              maiúscula e caractere especial (_#$%!@).
+            </span>
             <input
               type="password"
               id="confirm-password"
               name="confirm-password"
               placeholder="Confirmar Senha"
-              autocomplete="on"
+              autocomplete="new-password"
             />
+            <span class="form-message confirm-password">
+              As senhas não são iguais!
+            </span>
             <div class="form-button">
-              <input type="button" value="anterior" />
-              <input type="submit" value="enviar" />
+              <input type="button" value="anterior" class="btn-outline" />
+              <input type="submit" value="enviar" disabled />
             </div>
           </fieldset>
         </form>

@@ -13,10 +13,13 @@ body.theme-light {
   --color-surface-border: var(--color-base-surface-gradient1);
   --color-surface-secondary: #ffffffaa;
   --color-accent: #d6a314;
+  --color-error: tomato;
   --color-shadow: black;
+  --color-confirm: rgb(4, 109, 4);
   --color-on-background: #222;
   --color-on-surface: #222;
-  --color-on-accent: white; }
+  --color-on-accent: white;
+  --color-on-error: white; }
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -25,7 +28,10 @@ body.theme-light {
     --color-background: black;
     --color-surface-secondary: #000000aa;
     --color-accent: #1668ec;
-    --color-on-background: #fefefe; } }
+    --color-confirm: rgb(58, 196, 58);
+    --color-on-background: #fefefe;
+    --color-on-surface: #fff;
+    --color-on-accent: #222; } }
 
 body.theme-dark {
   --color-base-surface-gradient0: #484848ce;
@@ -39,7 +45,10 @@ body.theme-dark {
   --color-surface-secondary: #000000aa;
   --color-surface-border: var(--color-base-surface-gradient1);
   --color-accent: #1668ec;
-  --color-on-background: #fefefe; }
+  --color-confirm: rgb(58, 196, 58);
+  --color-on-background: #fefefe;
+  --color-on-surface: #fff;
+  --color-on-accent: #222; }
 
 body {
   background-image: url("../img/frames/000.png");
@@ -480,6 +489,23 @@ section {
         display: flex; }
         section form fieldset:nth-child(n + 2) div.form-button input {
           margin: 10px; }
+      section form fieldset span {
+        display: flex;
+        text-align: left;
+        text-transform: capitalize;
+        margin: 10px;
+        margin-top: 0px;
+        font-size: smaller;
+        font-weight: normal; }
+    section form .form-message {
+      display: none; }
+      section form .form-message.error {
+        color: var(--color-error);
+        display: inherit; }
+      section form .form-message.info {
+        display: inherit; }
+      section form .form-message.confirm {
+        color: var(--color-confirm); }
 
 input {
   min-width: 250px;
@@ -491,21 +517,52 @@ input {
   border-radius: 8px;
   border-style: solid;
   border-width: thin;
-  transition: border 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out; }
   input:hover {
-    box-shadow: 0px 0.5px 1px var(--color-shadow); }
+    border-width: 1.5px; }
   input:focus {
     border-color: var(--color-accent);
     border-width: 2px;
-    caret-color: var(--color-on-background);
-    box-shadow: 0px 1px 2px var(--color-shadow); }
+    caret-color: var(--color-on-background); }
+  input:disabled {
+    opacity: 0.3;
+    pointer-events: none; }
+  input.error {
+    border-color: var(--color-error) !important;
+    color: var(--color-error); }
+  input.confirm {
+    border-color: var(--color-confirm) !important; }
 
 form input {
   background-color: var(--color-surface-secondary); }
 
+form input[type='button'] .btn-outline,
+form input[type='submit'] .btn-outline {
+  background-color: var(--color-surface-secondary);
+  color: var(--color-on-surface); }
+
 input[type='button'],
 input[type='submit'] {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0px 1px 2px var(--color-shadow);
+  background-color: var(--color-accent);
+  font-weight: bold;
+  color: var(--color-on-accent); }
+  input[type='button']:hover,
+  input[type='submit']:hover {
+    box-shadow: 0px 2px 2px var(--color-shadow);
+    cursor: pointer; }
+  input[type='button']:active,
+  input[type='submit']:active {
+    box-shadow: 0px 1px 1px var(--color-shadow); }
+  input[type='button'].btn-outline,
+  input[type='submit'].btn-outline {
+    background-color: var(--color-surface-secondary);
+    color: var(--color-on-surface); }
+
+input[type='submit']:active {
+  cursor: progress; }
 
 :root .switch {
   --color-switch-sun-background: #f5ec59;
@@ -518,6 +575,7 @@ input[type='submit'] {
   --color-switch-moon-dots-border: #dee2c6;
   --color-switch-moon-toggle-color-gradient0: #484848;
   --color-switch-moon-toggle-color-gradient1: #202020;
+  --dimen-switch-margin: 16px;
   --dimen-switch-width: 7.5rem;
   --dimen-switch-width-half: calc(var(--dimen-switch-width) * 0.5);
   --dimen-switch-height: 4rem;
@@ -547,6 +605,7 @@ input[type='submit'] {
 .switch {
   position: relative;
   float: right;
+  margin: var(--dimen-switch-margin);
   overflow: hidden;
   width: var(--dimen-switch-width);
   height: var(--dimen-switch-height); }

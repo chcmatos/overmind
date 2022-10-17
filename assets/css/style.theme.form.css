@@ -73,3 +73,20 @@ section {
         display: flex; }
         section form fieldset:nth-child(n + 2) div.form-button input {
           margin: 10px; }
+      section form fieldset span {
+        display: flex;
+        text-align: left;
+        text-transform: capitalize;
+        margin: 10px;
+        margin-top: 0px;
+        font-size: smaller;
+        font-weight: normal; }
+    section form .form-message {
+      display: none; }
+      section form .form-message.error {
+        color: var(--color-error);
+        display: inherit; }
+      section form .form-message.info {
+        display: inherit; }
+      section form .form-message.confirm {
+        color: var(--color-confirm); }
