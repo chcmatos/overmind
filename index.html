@@ -55,7 +55,7 @@
         <!--#endregion-->
 
         <!-- #region form-->
-        <form style="margin-left: -200%;">
+        <form id="signup-form" method="post" action="#">
           <fieldset>
             <input
               type="text"
@@ -64,16 +64,21 @@
               placeholder="Nome"
               autocomplete="given-name"
               autofocus
+              required
             />
+            <span class="form-message error">
+              Informe o seu nome
+            </span>
             <input
               type="text"
               id="lname"
               name="lname"
               placeholder="Sobrenome"
               autocomplete="family-name"
+              required
             />
             <div class="form-button">
-              <input type="button" value="próximo" disabled />
+              <input type="button" value="próximo" class="btn-next" />
             </div>
           </fieldset>
           <fieldset>
@@ -83,6 +88,8 @@
               name="tel"
               placeholder="Telefone"
               autocomplete="tel-local"
+              required
+              autofocus
             />
             <input
               type="email"
@@ -90,10 +97,15 @@
               name="email"
               placeholder="E-mail"
               autocomplete="on"
+              required
             />
             <div class="form-button">
-              <input type="button" value="anterior" class="btn-outline" />
-              <input type="button" value="próximo" disabled />
+              <input
+                type="button"
+                value="anterior"
+                class="btn-outline btn-prev"
+              />
+              <input type="button" value="próximo" class="btn-next" />
             </div>
           </fieldset>
           <fieldset>
@@ -103,8 +115,9 @@
               name="password"
               placeholder="Senha"
               autocomplete="new-password"
+              required
             />
-            <span class="form-message info password">
+            <span class="form-message password">
               A senha deve conter no mínimo 8 caracteres incluíndo uma letra
               maiúscula e caractere especial (_#$%!@).
             </span>
@@ -114,13 +127,18 @@
               name="confirm-password"
               placeholder="Confirmar Senha"
               autocomplete="new-password"
+              required
             />
             <span class="form-message confirm-password">
               As senhas não são iguais!
             </span>
             <div class="form-button">
-              <input type="button" value="anterior" class="btn-outline" />
-              <input type="submit" value="enviar" disabled />
+              <input
+                type="button"
+                value="anterior"
+                class="btn-outline btn-prev"
+              />
+              <input type="submit" value="enviar" />
             </div>
           </fieldset>
         </form>
@@ -135,5 +153,9 @@
   <script
     type="application/javascript"
     src="./assets/js/script.theme.switch.js"
+  ></script>
+  <script
+    type="application/javascript"
+    src="./assets/js/script.form.js"
   ></script>
 </html>

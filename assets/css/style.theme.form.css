@@ -58,7 +58,8 @@ section {
     padding: 16px; }
   section form {
     display: flex;
-    width: 300%; }
+    width: 300%;
+    transition: all 0.3s ease-in-out; }
     section form fieldset {
       display: block;
       border: unset !important;
