@@ -51,18 +51,16 @@ import validators from "./modules/validators.js";
 
     const setupSubmit = (form) => {
         form.onsubmit = (e) => {
-            console.log("submit");
-            e.preventDefault();
             for (let i in fieldsetArr) {
                 if (!isAllRequiredInputFieldFilled(i)) {
+                    selectNonValidFieldRequired(i);
+                    e.preventDefault();
                     return false;
                 }
             }
-            form.reset();
-            console.log("true");
             return true;
-        }
-    }
+        };
+    };
 
     const selectInputField = (input, timeout) => {
         if (!!input) {
@@ -118,7 +116,7 @@ import validators from "./modules/validators.js";
         const fieldset = fieldsetArr[index];
         const fields = Array.from(fieldset.querySelectorAll("input:required"));
         return fields && fields.pop() === currentField;
-    }
+    };
 
     const requestNextBtnOrSubmit = (index) => {
         return invokeClick(index, "input.btn-next") ||
@@ -131,8 +129,7 @@ import validators from "./modules/validators.js";
                 e.preventDefault();
                 if (isTabKey(e) && isLastInputSetFieldSelected(currFieldSetIndex, e.target)) {
                     return false;
-                }
-                if (isAllRequiredInputFieldFilled(currFieldSetIndex)) {
+                } else if (isAllRequiredInputFieldFilled(currFieldSetIndex)) {
                     requestNextBtnOrSubmit(currFieldSetIndex);
                 } else {
                     selectNonValidFieldRequired(currFieldSetIndex);

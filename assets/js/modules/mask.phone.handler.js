@@ -5,8 +5,15 @@ import {
     MOBILE_PHONE_LENGTH,
     MOBILE_PHONE_WITH_AREA_CODE_LENGTH,
     MOBILE_PHONE_WITH_COUNTRY_CODE_LENGTH
- } from "./mask.phone.constants.js";
+} from "./mask.phone.constants.js";
 
+/**
+ * Base Handler for any Phone format definition.
+ * Applying [Behavioral Pattern Chain of Responsibility]{@link https://refactoring.guru/design-patterns/chain-of-responsibility}.
+ * @param {*} _maxNumberLen 
+ * @param {*} _onHandleCallback 
+ * @returns 
+ */
 function PhoneHandler(_maxNumberLen, _onHandleCallback) {
     return class {
         constructor() {

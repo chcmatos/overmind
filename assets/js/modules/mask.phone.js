@@ -20,6 +20,8 @@ const _formatToPhone = (event) => {
         return;
     }
 
+    //chain of responsibility (Behavioral Pattern)
+    //see more https://refactoring.guru/design-patterns/chain-of-responsibility
     let node = new LocalPhoneHandler();
     node
         .next(new MobilePhoneHandler())

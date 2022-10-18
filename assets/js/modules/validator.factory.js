@@ -4,12 +4,7 @@ import SimpleTextValidator from "./validator.text.js";
 import BrazilPhoneNumberValidator from "./validator.phone.js";
 import EmailValidator from "./validator.mail.js";
 import PasswordValidator from "./validator.password.js";
-import ConfirmPasswordValidator from "./validator.password.confirm.js"
-
-//#region Validators
-
-
-//#endregion
+import ConfirmPasswordValidator from "./validator.password.confirm.js";
 
 export class ValidatorFactory {
 

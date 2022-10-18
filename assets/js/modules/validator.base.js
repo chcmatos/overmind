@@ -46,11 +46,12 @@ export default class Validator {
     }
 
     static attach(input, validator) {
-        return input['validator'] = validator;
+        input['validator'] = validator;
+        return validator;
     }
 
     static isAttached(input) {
-        return 'validator' in input && input['validator'] instanceof Validator
+        return 'validator' in input && input['validator'] instanceof Validator;
     }
 
     static attached(input) {

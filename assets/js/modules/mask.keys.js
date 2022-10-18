@@ -27,7 +27,7 @@ const _isSomeKey = (event, ...keys) => {
         }
     }
     return false;
-}
+};
 
 export const isNumericInput = (event) => {
     return _between(event.keyCode, NUMBER_LINE_FIRST_KEY, NUMBER_LINE_LAST_KEY) ||
@@ -40,7 +40,7 @@ export const isDeleteKey = (event) => {
 
 export const isBackspaceKey = (event) => {
     return event.keyCode === BACKSPACE_KEY;
-}
+};
 
 export const isEnterKey = (event) => {
     return event.keyIdentifier == 'U+000A' || event.keyIdentifier == 'Enter' || event.keyCode === ENTER_KEY;
@@ -53,7 +53,7 @@ export const isTabKey = (event) => {
 export const isShortcutCommandKey = (event) => {
     // Allow Ctrl/Command + A,C,V,X,Z
     return (event.ctrlKey === true || event.metaKey === true) &&
-        (key === 65 || key === 67 || key === 86 || key === 88 || key === 90)
+        (key === 65 || key === 67 || key === 86 || key === 88 || key === 90);
 };
 
 export const isModifierKey = (event) => {
