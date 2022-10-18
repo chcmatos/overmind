@@ -8,14 +8,14 @@ import {
     MobilePhoneWithCountryCodeHandler
 } from "./mask.phone.handler.js";
 
-const enforceFormat = (event) => {
+const _enforceFormat = (event) => {
     // Input must be of a valid number format or a modifier key, and not longer than ten digits
     if (!isNumericInput(event) && !isModifierKey(event)) {
         event.preventDefault();
     }
 };
 
-const formatToPhone = (event) => {
+const _formatToPhone = (event) => {
     if (isModifierKey(event) && !isDeleteKey(event) && !isBackspaceKey(event)) {
         return;
     }
@@ -30,21 +30,23 @@ const formatToPhone = (event) => {
     node.handle(event);
 };
 
-const setup = (input) => {
+const _setup = (input) => {
     if (input && input.tagName.toLowerCase() === 'input') {
-        input.removeEventListener('keydown', enforceFormat, false);
-        input.removeEventListener('keyup', formatToPhone, false);
-        input.addEventListener('keydown', enforceFormat);
-        input.addEventListener('keyup', formatToPhone);
+        input.removeEventListener('keydown', _enforceFormat, false);
+        input.removeEventListener('keyup', _formatToPhone, false);
+        input.addEventListener('keydown', _enforceFormat);
+        input.addEventListener('keyup', _formatToPhone);
     }
 };
 
+const _setupById = (id) => _setup(document.getElementById(id));
+
+const _setupAllInputTypeTel = () => {
+    const inputs = document.querySelectorAll("input[type='tel']");
+    inputs.forEach(_setup);
+};
+
 export default {
-    setupById: (id) => {
-        setup(document.getElementById(id));
-    },
-    setupAllInputTypeTel: () => {
-        const inputs = document.querySelectorAll("input[type='tel']");
-        inputs.forEach(setup);
-    }
+    setupById: _setupById,
+    setupAllInputTypeTel: _setupAllInputTypeTel
 };

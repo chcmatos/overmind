@@ -16,11 +16,11 @@ const ARROW_RIGHT_KEY = 39;
 const ARROW_DOWN_KEY = 40;
 const DELETE_KEY = 46;
 
-const between = (target, from, until) => {
+const _between = (target, from, until) => {
     return target >= from && target <= until;
 };
 
-const isSomeKey = (event, ...keys) => {
+const _isSomeKey = (event, ...keys) => {
     for (let key of keys) {
         if (event.keyCode === key) {
             return true;
@@ -30,8 +30,8 @@ const isSomeKey = (event, ...keys) => {
 }
 
 export const isNumericInput = (event) => {
-    return between(event.keyCode, NUMBER_LINE_FIRST_KEY, NUMBER_LINE_LAST_KEY) ||
-        between(event.keyCode, NUMBER_PAD_FIRST_KEY, NUMBER_PAD_LAST_KEY);
+    return _between(event.keyCode, NUMBER_LINE_FIRST_KEY, NUMBER_LINE_LAST_KEY) ||
+        _between(event.keyCode, NUMBER_PAD_FIRST_KEY, NUMBER_PAD_LAST_KEY);
 };
 
 export const isDeleteKey = (event) => {
@@ -57,7 +57,7 @@ export const isShortcutCommandKey = (event) => {
 };
 
 export const isModifierKey = (event) => {
-    return !!event.shiftKey || isShortcutCommandKey(event) || isSomeKey(event,
+    return !!event.shiftKey || isShortcutCommandKey(event) || _isSomeKey(event,
         SHIFT_KEY,
         END_KEY,
         HOME_KEY,

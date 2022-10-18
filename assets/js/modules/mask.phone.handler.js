@@ -1,3 +1,12 @@
+import {
+    LOCAL_PHONE_LENGTH,
+    LOCAL_PHONE_WITH_AREA_CODE_LENGTH,
+    LOCAL_PHONE_WITH_COUNTRY_CODE_LENGTH,
+    MOBILE_PHONE_LENGTH,
+    MOBILE_PHONE_WITH_AREA_CODE_LENGTH,
+    MOBILE_PHONE_WITH_COUNTRY_CODE_LENGTH
+ } from "./mask.phone.constants.js";
+
 function PhoneHandler(_maxNumberLen, _onHandleCallback) {
     return class {
         constructor() {
@@ -30,7 +39,7 @@ function PhoneHandler(_maxNumberLen, _onHandleCallback) {
 }
 
 //#region Local Phone
-export class LocalPhoneHandler extends PhoneHandler(8,
+export class LocalPhoneHandler extends PhoneHandler(LOCAL_PHONE_LENGTH,
     (args) => {
         if (args.length < 4) {
             return args.digits;
@@ -41,20 +50,20 @@ export class LocalPhoneHandler extends PhoneHandler(8,
         }
     }) { }
 
-export class LocalPhoneWithAreaCodeHandler extends PhoneHandler(10,
+export class LocalPhoneWithAreaCodeHandler extends PhoneHandler(LOCAL_PHONE_WITH_AREA_CODE_LENGTH,
     (args) => `${args.digits.substring(0, 2)} ${args.digits.substring(2, 6)}-${args.digits.substring(6)}`) { }
 
-export class LocalPhoneWithCountryCodeHandler extends PhoneHandler(12,
+export class LocalPhoneWithCountryCodeHandler extends PhoneHandler(LOCAL_PHONE_WITH_COUNTRY_CODE_LENGTH,
     (args) => `+${args.digits.substring(0, 2)} ${args.digits.substring(2, 4)} ${args.digits.substring(4, 8)}-${args.digits.substring(8)}`) { }
 //#endregion
 
 //#region Mobile Phone
-export class MobilePhoneHandler extends PhoneHandler(9,
+export class MobilePhoneHandler extends PhoneHandler(MOBILE_PHONE_LENGTH,
     (args) => `${args.digits.substring(0, 1)} ${args.digits.substring(1, 5)}-${args.digits.substring(5)}`) { }
 
-export class MobilePhoneWithAreaCodeHandler extends PhoneHandler(11,
+export class MobilePhoneWithAreaCodeHandler extends PhoneHandler(MOBILE_PHONE_WITH_AREA_CODE_LENGTH,
     (args) => `${args.digits.substring(0, 2)} ${args.digits.substring(2, 3)} ${args.digits.substring(3, 7)}-${args.digits.substring(7)}`) { }
 
-export class MobilePhoneWithCountryCodeHandler extends PhoneHandler(13,
+export class MobilePhoneWithCountryCodeHandler extends PhoneHandler(MOBILE_PHONE_WITH_COUNTRY_CODE_LENGTH,
     (args) => `+${args.digits.substring(0, 2)} ${args.digits.substring(2, 4)} ${args.digits.substring(4, 5)} ${args.digits.substring(5, 9)}-${args.digits.substring(9, 13)}`) { }
 //#endregion

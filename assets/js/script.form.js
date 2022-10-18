@@ -4,6 +4,7 @@ import validators from "./modules/validators.js";
 
 (() => {
     masks.setupAll();
+    validators.setupAll();
 
     const forward = (index) => {
         currFieldSetIndex = index + 1;
@@ -29,7 +30,8 @@ import validators from "./modules/validators.js";
     };
 
     const setupNextBtn = (fieldset, index) => {
-        setupBtn(fieldset, "input.btn-next", () => {
+        setupBtn(fieldset, "input.btn-next", (e) => {
+            e.preventDefault();
             if (isAllRequiredInputFieldFilled(index)) {
                 forward(index);
                 selectFirstInputField(index + 1);
@@ -40,11 +42,27 @@ import validators from "./modules/validators.js";
     };
 
     const setupPrevBtn = (fieldset, index) => {
-        setupBtn(fieldset, "input.btn-prev", () => {
+        setupBtn(fieldset, "input.btn-prev", (e) => {
+            e.preventDefault();
             backward(index);
             selectFirstInputField(index - 1);
         });
     };
+
+    const setupSubmit = (form) => {
+        form.onsubmit = (e) => {
+            console.log("submit");
+            e.preventDefault();
+            for (let i in fieldsetArr) {
+                if (!isAllRequiredInputFieldFilled(i)) {
+                    return false;
+                }
+            }
+            form.reset();
+            console.log("true");
+            return true;
+        }
+    }
 
     const selectInputField = (input, timeout) => {
         if (!!input) {
@@ -98,7 +116,7 @@ import validators from "./modules/validators.js";
 
     const isLastInputSetFieldSelected = (index, currentField) => {
         const fieldset = fieldsetArr[index];
-        const fields =  Array.from(fieldset.querySelectorAll("input:required"));        
+        const fields = Array.from(fieldset.querySelectorAll("input:required"));
         return fields && fields.pop() === currentField;
     }
 
@@ -135,4 +153,6 @@ import validators from "./modules/validators.js";
         setupNextBtn(fieldset, index);
         setupPrevBtn(fieldset, index);
     }
+
+    setupSubmit(form);
 })();

@@ -103,11 +103,12 @@
               placeholder="Telefone"
               autocomplete="on"
               minlength="8"
+              maxlength="18"
               required
               autofocus
             />
             <span class="form-message tel">
-              Informe válido para contato.
+              Informe um número válido para contato.
             </span>
             <!--#endregion-->
             <!--#region e-mail (email) -->
@@ -118,6 +119,7 @@
               placeholder="E-mail"
               autocomplete="on"
               minlength="5"
+              maxlength="50"
               required
             />
             <span class="form-message email">
@@ -159,6 +161,7 @@
               name="confirm-password"
               placeholder="Confirmar Senha"
               autocomplete="new-password"
+              confirm-id="password"
               required
             />
             <span class="form-message confirm-password">

@@ -528,7 +528,7 @@ input {
   border-radius: 8px;
   border-style: solid;
   border-width: thin;
-  transition: all 0.2s ease-in-out; }
+  transition: all 0.3s ease-in-out; }
   input:hover {
     border-width: 1.5px; }
   input:focus {
