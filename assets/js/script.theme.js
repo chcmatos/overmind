@@ -32,7 +32,7 @@
             writable: false
         },
         isThemeLight: {
-            value: () => getTheme() == THEME_LIGHT || getTheme() === undefined,
+            value: () => getTheme() == THEME_LIGHT,
             writable: false,
         },
         isThemeDark: {
@@ -40,7 +40,10 @@
             writable: false,
         },
         getTheme: {
-            value: () => localStorage.getItem(THEME_KEY),
+            value: () => {
+                let theme = localStorage.getItem(THEME_KEY);
+                return theme || (prefersDarkTheme ? THEME_DARK : THEME_LIGHT);
+            },
             writable: false,
         },
         setTheme: {
