@@ -1,4 +1,5 @@
 @import './style.theme.form.progress.scss';
+@import './mixin.animations.scss';
 
 section {
   min-width: 600px;
@@ -11,7 +12,6 @@ section {
   text-transform: uppercase;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 12px;
   border-width: 2px;
   border-style: thin;
@@ -19,6 +19,7 @@ section {
   background: var(--color-surface);
   overflow: hidden;
   user-select: none;
+  @include transform(translate(-50%, -50%));
 
   h1 {
     padding: 16px;
@@ -27,7 +28,7 @@ section {
   form {
     display: flex;
     width: 300%;
-    transition: all 0.3s ease-in-out;
+    @include transition(all 0.3s ease-in-out);
 
     fieldset {
       display: grid;

@@ -434,8 +434,12 @@ body {
       display: inline-block;
       position: relative;
       border-radius: 50%;
-      transition: all 0.2s ease;
-      line-height: 25px; }
+      line-height: 25px;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease; }
       .progress-bar .step .circle span {
         font-size: small; }
       .progress-bar .step .circle .fa-check {
@@ -465,19 +469,27 @@ section {
   text-transform: uppercase;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 12px;
   border-width: 2px;
   border-style: thin;
   border-color: var(--color-surface-border);
   background: var(--color-surface);
   overflow: hidden;
-  user-select: none; }
+  user-select: none;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
   section h1 {
     padding: 16px; }
   section form {
     display: flex;
     width: 300%;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
     section form fieldset {
       display: grid;
@@ -528,6 +540,10 @@ input {
   border-radius: 8px;
   border-style: solid;
   border-width: thin;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
   input:hover {
     border-width: 1.5px; }
@@ -621,6 +637,10 @@ form input[type='text'][name$='name'] {
   height: var(--dimen-switch-height);
   user-select: none;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
   transform: translateX(-50%); }
   .switch input {
     position: absolute;
@@ -632,6 +652,10 @@ form input[type='text'][name$='name'] {
       left: calc(100% - var(--dimen-switch-width-half));
       background: var(--color-switch-sun-background);
       border-color: var(--color-switch-sun-border);
+      -webkit-transform: rotate(calc(var(--dimen-switch-rotate) * -1));
+      -moz-transform: rotate(calc(var(--dimen-switch-rotate) * -1));
+      -ms-transform: rotate(calc(var(--dimen-switch-rotate) * -1));
+      -o-transform: rotate(calc(var(--dimen-switch-rotate) * -1));
       transform: rotate(calc(var(--dimen-switch-rotate) * -1)); }
       .switch input:checked ~ .sun-moon .dots,
       .switch input:checked ~ .sun-moon .dots:after,
@@ -643,6 +667,10 @@ form input[type='text'][name$='name'] {
         width: var(--dimen-switch-dots-sun);
         top: var(--dimen-switch-dots-sun-top);
         left: var(--dimen-switch-dots-sun-left);
+        -webkit-transform: rotate(var(--dimen-switch-rotate));
+        -moz-transform: rotate(var(--dimen-switch-rotate));
+        -ms-transform: rotate(var(--dimen-switch-rotate));
+        -o-transform: rotate(var(--dimen-switch-rotate));
         transform: rotate(var(--dimen-switch-rotate)); }
         .switch input:checked ~ .sun-moon .dots:after {
           height: var(--dimen-switch-dots-sun-after);
@@ -670,6 +698,10 @@ form input[type='text'][name$='name'] {
       margin: var(--dimen-switch-sun-mon-margin);
       background: var(--color-switch-moon-background);
       border-radius: 50%;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
       transition: all 0.5s ease;
       border: var(--dimen-switch-border-width) solid var(--color-switch-moon-dots-border); }
       .switch label .sun-moon .dots {
@@ -681,6 +713,10 @@ form input[type='text'][name$='name'] {
         background: var(--color-switch-moon-dots-background);
         border: var(--dimen-switch-border-width) solid var(--color-switch-moon-dots-border);
         border-radius: 50%;
+        -webkit-transition: 0.4s all ease;
+        -moz-transition: 0.4s all ease;
+        -ms-transition: 0.4s all ease;
+        -o-transition: 0.4s all ease;
         transition: 0.4s all ease; }
         .switch label .sun-moon .dots:after {
           top: var(--dimen-switch-dots-top-after);
@@ -697,6 +733,10 @@ form input[type='text'][name$='name'] {
           background: var(--color-switch-moon-dots-background);
           border: var(--dimen-switch-border-width) solid var(--color-switch-moon-dots-border);
           border-radius: 50%;
+          -webkit-transition: 0.4s all ease;
+          -moz-transition: 0.4s all ease;
+          -ms-transition: 0.4s all ease;
+          -o-transition: 0.4s all ease;
           transition: 0.4s all ease; }
   .switch .background {
     z-index: 1;
@@ -706,13 +746,23 @@ form input[type='text'][name$='name'] {
     border-radius: var(--dimen-switch-border-radius);
     border: var(--dimen-switch-border-width) solid var(--color-switch-moon-toggle-color-gradient1);
     background: linear-gradient(to right, var(--color-switch-moon-toggle-color-gradient0) 0%, var(--color-switch-moon-toggle-color-gradient1) 100%);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
     transition: all 0.3s; }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out; }
 
 *,

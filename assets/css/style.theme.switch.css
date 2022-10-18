@@ -44,6 +44,10 @@
   height: var(--dimen-switch-height);
   user-select: none;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
   transform: translateX(-50%); }
   .switch input {
     position: absolute;
@@ -55,6 +59,10 @@
       left: calc(100% - var(--dimen-switch-width-half));
       background: var(--color-switch-sun-background);
       border-color: var(--color-switch-sun-border);
+      -webkit-transform: rotate(calc(var(--dimen-switch-rotate) * -1));
+      -moz-transform: rotate(calc(var(--dimen-switch-rotate) * -1));
+      -ms-transform: rotate(calc(var(--dimen-switch-rotate) * -1));
+      -o-transform: rotate(calc(var(--dimen-switch-rotate) * -1));
       transform: rotate(calc(var(--dimen-switch-rotate) * -1)); }
       .switch input:checked ~ .sun-moon .dots,
       .switch input:checked ~ .sun-moon .dots:after,
@@ -66,6 +74,10 @@
         width: var(--dimen-switch-dots-sun);
         top: var(--dimen-switch-dots-sun-top);
         left: var(--dimen-switch-dots-sun-left);
+        -webkit-transform: rotate(var(--dimen-switch-rotate));
+        -moz-transform: rotate(var(--dimen-switch-rotate));
+        -ms-transform: rotate(var(--dimen-switch-rotate));
+        -o-transform: rotate(var(--dimen-switch-rotate));
         transform: rotate(var(--dimen-switch-rotate)); }
         .switch input:checked ~ .sun-moon .dots:after {
           height: var(--dimen-switch-dots-sun-after);
@@ -93,6 +105,10 @@
       margin: var(--dimen-switch-sun-mon-margin);
       background: var(--color-switch-moon-background);
       border-radius: 50%;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
       transition: all 0.5s ease;
       border: var(--dimen-switch-border-width) solid var(--color-switch-moon-dots-border); }
       .switch label .sun-moon .dots {
@@ -104,6 +120,10 @@
         background: var(--color-switch-moon-dots-background);
         border: var(--dimen-switch-border-width) solid var(--color-switch-moon-dots-border);
         border-radius: 50%;
+        -webkit-transition: 0.4s all ease;
+        -moz-transition: 0.4s all ease;
+        -ms-transition: 0.4s all ease;
+        -o-transition: 0.4s all ease;
         transition: 0.4s all ease; }
         .switch label .sun-moon .dots:after {
           top: var(--dimen-switch-dots-top-after);
@@ -120,6 +140,10 @@
           background: var(--color-switch-moon-dots-background);
           border: var(--dimen-switch-border-width) solid var(--color-switch-moon-dots-border);
           border-radius: 50%;
+          -webkit-transition: 0.4s all ease;
+          -moz-transition: 0.4s all ease;
+          -ms-transition: 0.4s all ease;
+          -o-transition: 0.4s all ease;
           transition: 0.4s all ease; }
   .switch .background {
     z-index: 1;
@@ -129,4 +153,8 @@
     border-radius: var(--dimen-switch-border-radius);
     border: var(--dimen-switch-border-width) solid var(--color-switch-moon-toggle-color-gradient1);
     background: linear-gradient(to right, var(--color-switch-moon-toggle-color-gradient0) 0%, var(--color-switch-moon-toggle-color-gradient1) 100%);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
     transition: all 0.3s; }

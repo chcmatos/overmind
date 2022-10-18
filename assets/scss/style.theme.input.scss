@@ -1,3 +1,5 @@
+@import './mixin.animations.scss';
+
 input {
   min-width: 250px;
   min-height: 50px;
@@ -8,7 +10,7 @@ input {
   border-radius: 8px;
   border-style: solid;
   border-width: thin;
-  transition: all 0.3s ease-in-out;
+  @include transition(all 0.3s ease-in-out);
 
   &:hover {
     border-width: 1.5px;
@@ -28,7 +30,7 @@ input {
     border-width: 2px;
     border-color: var(--color-error) !important;
     color: var(--color-error);
-    
+
     &:focus {
       border-width: 3px;
     }

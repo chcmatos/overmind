@@ -16,8 +16,12 @@
       display: inline-block;
       position: relative;
       border-radius: 50%;
-      transition: all 0.2s ease;
-      line-height: 25px; }
+      line-height: 25px;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease; }
       .progress-bar .step .circle span {
         font-size: small; }
       .progress-bar .step .circle .fa-check {

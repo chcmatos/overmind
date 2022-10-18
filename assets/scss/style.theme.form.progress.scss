@@ -1,3 +1,5 @@
+@import './mixin.animations.scss';
+
 .progress-bar {
   display: flex;
   width: 100%;
@@ -18,8 +20,8 @@
       display: inline-block;
       position: relative;
       border-radius: 50%;
-      transition: all 0.2s ease;
       line-height: 25px;
+      @include transition(all 0.2s ease);
 
       span {
         font-size: small;
