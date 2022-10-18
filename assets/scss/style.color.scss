@@ -1,0 +1,67 @@
+@import './constants.scss';
+
+:root,
+body.theme-light {
+  color-scheme: light dark;
+
+  --color-base-surface-gradient0: #{$color-surface-gradient0-light};
+  --color-base-surface-gradient1: #{$color-surface-gradient1-light};
+
+  --color-background: #{$color-background-light};
+  --color-surface: linear-gradient(
+    to right,
+    var(--color-base-surface-gradient0) 0%,
+    var(--color-base-surface-gradient1) 100%
+  );
+  --color-surface-border: var(--color-base-surface-gradient1);
+  --color-surface-secondary: #{$color-surface-secondary-light};
+  --color-accent: #{$color-accent-light};
+  --color-error: #{$color-error-light};
+  --color-shadow: #{$color-shadow-light};
+  --color-confirm: #{$color-confirm-light};
+
+  --color-on-background: #{$color-on-background-light};
+  --color-on-surface: #{$color-on-surface-light};
+  --color-on-accent: #{$color-on-accent-light};
+  --color-on-error: #{$color-on-error-light};
+}
+
+:root {
+  @media (prefers-color-scheme: dark) {
+    --color-base-surface-gradient0: #{$color-surface-gradient0-dark};
+    --color-base-surface-gradient1: #{$color-surface-gradient1-dark};
+
+    --color-background: #{$color-background-dark};
+    --color-surface-secondary: #{$color-surface-secondary-dark};
+    --color-accent: #{$color-accent-dark};
+    --color-error: #{$color-error-dark};
+    --color-confirm: #{$color-confirm-dark};
+
+    --color-on-background: #{$color-on-background-dark};
+    --color-on-surface: #{$color-on-surface-dark};
+    --color-on-accent: #{$color-on-accent-dark};
+  }
+}
+
+body {
+  &.theme-dark {
+    --color-base-surface-gradient0: #{$color-surface-gradient0-dark};
+    --color-base-surface-gradient1: #{$color-surface-gradient1-dark};
+
+    --color-background: #{$color-background-dark};
+    --color-surface: linear-gradient(
+      to right,
+      var(--color-base-surface-gradient0) 0%,
+      var(--color-base-surface-gradient1) 100%
+    );
+    --color-surface-secondary: #{$color-surface-secondary-dark};
+    --color-surface-border: var(--color-base-surface-gradient1);
+    --color-accent: #{$color-accent-dark};
+    --color-error: #{$color-error-dark};
+    --color-confirm: #{$color-confirm-dark};
+
+    --color-on-background: #{$color-on-background-dark};
+    --color-on-surface: #{$color-on-surface-dark};
+    --color-on-accent: #{$color-on-accent-dark};
+  }
+}
