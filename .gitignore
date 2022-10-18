@@ -2,7 +2,10 @@
 /node_modules
 package-lock.json
 assets/.DS_Store
-assets/img/frames/.DS_Store
+assets/**/.DS_Store
+assets/**/**/.DS_Store
 assets/video/.DS_Store
-assets/img/frames/.DS_Store
 assets/css/style.*.**
+assets/css/constants.**
+assets/css/functions.**
+assets/css/mixin.*.**
