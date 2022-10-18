@@ -41,12 +41,14 @@
 
 .switch {
   position: relative;
-  float: right;
+
   margin: var(--dimen-switch-margin);
   overflow: hidden;
   width: var(--dimen-switch-width);
   height: var(--dimen-switch-height);
   user-select: none;
+  left: 50%;
+  transform: translateX(-50%);
 
   input {
     position: absolute;
