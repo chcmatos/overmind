@@ -12,6 +12,7 @@ import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
 import os from 'os';
 
+const bSync = browserSync.create();
 const uglify = uglifyES.default;
 const sass = gulpSass(dartSass);
 
@@ -25,7 +26,8 @@ gulp.task('style', () => {
         .pipe(concat('styles.css'))
         .pipe(base64("../assets"))
         .pipe(trim())
-        .pipe(gulp.dest('./dist/assets/css'));
+        .pipe(gulp.dest('./dist/assets/css'))
+        .pipe(bSync.stream());
 });
 
 /**
@@ -34,7 +36,8 @@ gulp.task('style', () => {
 gulp.task('script', () => {
     return gulp.src('./src/assets/js/**/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('./dist/assets/js'));
+        .pipe(gulp.dest('./dist/assets/js'))
+        .pipe(bSync.stream());
 });
 
 /**
@@ -46,7 +49,8 @@ gulp.task('html', () => {
             collapseWhitespace: true,
             removeComments: true
         }))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist'))
+        .pipe(bSync.stream());
 });
 
 /**
@@ -62,7 +66,7 @@ gulp.task('clean', (done) => {
  */
 gulp.task('img', () => {
     return gulp.src('./src/assets/img/**/*.**')
-        .pipe(imagemin())
+        //.pipe(imagemin())
         .pipe(gulp.dest('./dist/assets/img'));
 });
 
@@ -75,24 +79,24 @@ gulp.task('serve', (done) => {
         os.platform() === 'darwin' ? 'google chrome' : (
             os.platform() === 'win32' ? 'chrome' : 'firefox'));
     //setup browser server sync in default port.
-    browserSync.init({
+    bSync.init({
         server: { baseDir: './dist' },
         open: true,
         browser: browser
     });
 
     //watch any style, script or html changes.
-    gulp.watch(['./src/assets/scss/*.scss'], gulp.series('style', browserSync.reload));
-    gulp.watch('./src/assets/js/**/*.js', gulp.series('script', browserSync.reload));
-    gulp.watch('./src/assets/img/**/*.**', gulp.series('img', browserSync.reload));
-    gulp.watch('./src/index.html', gulp.series('html', browserSync.reload));
+    gulp.watch('./src/assets/scss/*.scss').on('change', gulp.series('style', bSync.reload));
+    gulp.watch('./src/assets/js/**/*.js').on('change', gulp.series('script', bSync.reload));
+    gulp.watch('./src/assets/img/**/*.**').on('change', gulp.series('img', bSync.reload));
+    gulp.watch('./src/index.html').on('change', gulp.series('html', bSync.reload));
     done();
 });
 
 /**
  * Minify all files
  */
-gulp.task('build', gulp.series('clean', gulp.parallel(['style', 'script', 'html'])), (done) => {
+gulp.task('build', gulp.series('clean', gulp.parallel(['style', 'script', 'html', 'img'])), (done) => {
     console.log("It's done!");
     done();
 });
