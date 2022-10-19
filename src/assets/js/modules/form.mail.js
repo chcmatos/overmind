@@ -1,6 +1,7 @@
 /**
  * !Apenas para fins de exemplo prático de envio de e-mail.
  * !Nao implementar por tal ferramenta.
+ * {@link https://www.emailjs.com/ | emailjs}
  */
 import "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
 
