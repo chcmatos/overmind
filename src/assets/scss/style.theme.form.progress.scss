@@ -47,10 +47,11 @@
       }
     }
 
-    span {
+    > span {
       font-weight: 500;
       font-size: 18px;
       margin-bottom: 8px;
+      margin-inline: 4px;
     }
   }
 }
