@@ -10,6 +10,7 @@
     "script": "gulp script",
     "build": "gulp build",
     "serve": "gulp serve",
+    "setup": "npm install && (gulp || ((npm install gulp-cli -g) && gulp))",
     "build-serve": "gulp"
   },
   "repository": {

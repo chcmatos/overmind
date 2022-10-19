@@ -1,28 +1,25 @@
 import { isEnterKey, isTabKey } from "./mask.keys.js";
 import validators from "./validators.js";
 import mail from "./form.mail.js";
+import steps from "./form.steps.circle.js";
 
 export default {
     setup: () => {
+        console.log(mail);
         let currFieldSetIndex = 0;
-        const steps = Array.from(document.querySelectorAll(".step .circle"));
         const form = document.getElementById("signup-form");
         const fieldsetArr = Array.from(form.getElementsByTagName("fieldset"));
 
         const forward = (index) => {
-            currFieldSetIndex = index + 1;
+            currFieldSetIndex = (index || currFieldSetIndex) + 1;
             form.style.marginLeft = (currFieldSetIndex * -100) + '%';
-            if (!steps[index].classList.contains('active')) {
-                steps[index].classList.add('active');
-            }
+            steps.check(currFieldSetIndex);
         };
 
         const backward = (index) => {
-            currFieldSetIndex = --index;
-            form.style.marginLeft = (currFieldSetIndex * -100) + '%';
-            if (steps[index].classList.contains('active')) {
-                steps[index].classList.remove('active');
-            }
+            steps.uncheck(currFieldSetIndex);
+            currFieldSetIndex = (index || currFieldSetIndex) - 1;
+            form.style.marginLeft = (currFieldSetIndex * -100) + '%';            
         };
 
         const setupBtn = (fieldset, query, callback) => {
@@ -56,11 +53,12 @@ export default {
             form.onsubmit = (e) => {
                 e.preventDefault();
                 if (isAllRequiredInputFieldsValid()) {
-                    mail.send(form).then(resp => {
-                        console.log(resp);
-                    }).catch(e => {
-                        console.error(e);
-                    });
+                    forward();
+                    // mail.send(form).then(resp => {
+                    //     console.log(resp);
+                    // }).catch(e => {
+                    //     console.error(e);
+                    // });
                 }
                 return false;
             };
