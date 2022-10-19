@@ -1,3 +1,4 @@
+@use "sass:math";
 @import './functions.scss';
 
 @mixin generate-key-frames-background-image(
@@ -15,9 +16,9 @@
         $k: $until - $k;
       }
       #{round($perc) + '%'} {
-        background-image: url('../img/frames/#{zero-leading($k, 3)}.png');
+        background-image: inline('../img/frames/#{zero-leading($k, 3)}.png');
       }
-      $perc: ($i / $total) * 100;
+      $perc: math.div($i, $total) * 100;
     }
   }
 
@@ -29,9 +30,9 @@
         $k: $until - $k;
       }
       #{round($perc) + '%'} {
-        background-image: url('../img/frames/#{zero-leading($k, 3)}.png');
+        background-image: inline('../img/frames/#{zero-leading($k, 3)}.png');
       }
-      $perc: ($i / $total) * 100;
+      $perc: math.div($i, $total) * 100;
     }
   }
 }

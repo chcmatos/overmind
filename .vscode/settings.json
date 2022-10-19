@@ -7,11 +7,13 @@
     "Carlos",
     "Confirmar",
     "contato",
+    "csso",
     "deve",
     "dimen",
     "endregion",
     "enviar",
     "esversion",
+    "htmlmin",
     "iguais",
     "incluíndo",
     "Informe",
@@ -20,6 +22,8 @@
     "Matos",
     "melhor",
     "mínimo",
+    "mozjpeg",
+    "optipng",
     "Overmind",
     "perc",
     "próximo",
@@ -31,5 +35,6 @@
     "voltar"
   ],
   "html.autoClosingTags": true,
-  "jshint.enable": true
+  "jshint.enable": true,
+  "liveServer.settings.port": 5501
 }

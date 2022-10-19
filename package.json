@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Overmind Simple Form using day/night theme",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass --omit-source-map-url ./assets/scss/ -o ./assets/css/",
@@ -13,6 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/chcmatos/overmind.git"
   },
+  "browserslist": [
+    "defaults and supports es6-module",
+    "maintained node versions"
+  ],
   "keywords": [
     "Overmind",
     "Test",
@@ -29,7 +34,22 @@
   },
   "homepage": "https://github.com/chcmatos/overmind#readme",
   "devDependencies": {
-    "live-server": "^1.2.2",
-    "node-sass": "^7.0.3"
+    "browser-sync": "^2.27.10",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-base64-inline": "^1.0.6",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-trim": "^1.0.2",
+    "gulp-uglify-es": "^3.0.0",
+    "live-server": "^1.1.0",
+    "node-sass": "^7.0.3",
+    "sass": "^1.55.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

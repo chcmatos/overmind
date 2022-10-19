@@ -4,7 +4,7 @@
 
 //default light
 body {
-  background-image: url('../img/frames/000.png');
+  background-image: inline('../img/frames/000.png');
   background-color: var(--color-background);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -29,7 +29,7 @@ body {
   }
 
   @media (prefers-color-scheme: dark) {
-    background-image: url('../img/frames/039.png');
+    background-image: inline('../img/frames/039.png');
   }
 }
 

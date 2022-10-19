@@ -1,11 +1,10 @@
 *.DS_Store
+/dist
 /node_modules
 package-lock.json
 assets/.DS_Store
 assets/**/.DS_Store
 assets/**/**/.DS_Store
 assets/video/.DS_Store
-assets/css/style.*.**
-assets/css/constants.**
-assets/css/functions.**
-assets/css/mixin.*.**
+assets/css/**.css
+assets/css
