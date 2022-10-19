@@ -1,0 +1,153 @@
+@import "./constants.scss";
+
+@mixin background-image-thumb-up($color) {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50pt" height="50pt" viewBox="0 0 50 50" version="1.1"><path fill="#{$color}" d="M 36 45 L 17 45 C 12.039063 45 8 40.964844 8 36 L 8 26.601563 C 8 24.660156 8.566406 22.886719 9.6875 21.320313 L 20.890625 5.910156 C 21.589844 4.742188 22.769531 4 24 4 C 25.660156 4 28 5.425781 28 8.601563 C 28 9.507813 27.753906 10.117188 27.511719 10.707031 C 27.453125 10.847656 27.394531 10.992188 27.335938 11.148438 C 26.960938 12.199219 24.980469 16.675781 23.941406 19 C 27.019531 19.003906 33.839844 19.023438 36.429688 19.101563 C 39.28125 19.101563 41 21.03125 41 22.898438 C 41 23.539063 40.894531 24.414063 40.804688 25.03125 C 41.683594 25.554688 43 26.679688 43 28.699219 C 43 30.105469 42.324219 31.144531 41.675781 31.824219 C 42.335938 32.433594 43 33.390625 43 34.800781 C 43 36.808594 41.617188 38.023438 40.628906 38.640625 C 40.824219 39.164063 41 39.867188 41 40.699219 C 41 42.496094 39.097656 45 36 45 Z "/></svg>');
+}
+
+@mixin background-image-thumb-down($color) {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50pt" height="50pt" viewBox="0 0 50 50" version="1.1"><path fill="#{$color}" d="M 24 46 C 22.769531 46 21.589844 45.257813 20.84375 44.015625 L 9.691406 28.6875 C 8.566406 27.113281 8 25.339844 8 23.398438 L 8 14 C 8 9.039063 12.039063 5 17 5 L 36 5 C 39.097656 5 41 7.503906 41 9.300781 C 41 10.132813 40.824219 10.835938 40.628906 11.359375 C 41.617188 11.976563 43 13.195313 43 15.199219 C 43 16.609375 42.335938 17.566406 41.675781 18.175781 C 42.324219 18.851563 43 19.894531 43 21.300781 C 43 23.324219 41.683594 24.445313 40.804688 24.96875 C 40.894531 25.585938 41 26.457031 41 27.101563 C 41 28.96875 39.277344 30.902344 36.398438 30.902344 C 33.832031 30.976563 27.015625 30.996094 23.941406 31 C 24.980469 33.324219 26.964844 37.804688 27.34375 38.863281 C 27.429688 39.121094 27.507813 39.320313 27.578125 39.503906 C 27.796875 40.046875 28 40.566406 28 41.398438 C 28 44.574219 25.660156 46 24 46 Z "/></svg>');
+}
+
+/**
+ * Loading flickr based.
+ */
+.loading-spinner {
+    width: 8em;
+    height: 4em;
+    position: relative;
+    margin: 1rem auto;
+    cursor: wait;
+
+    /* Using pseudo elements now */
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        border-radius: 50%;
+        padding: 10px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        animation: move-loading ease-in-out 1s infinite alternate, cover-loading 2s infinite reverse;
+        transition: all 0.2 ease-out;
+    }
+
+    &:before {
+        background-color: var(--color-confirm);
+        animation-direction: alternate-reverse, normal;
+    }
+    &:after {
+        background-color: var(--color-error);
+    }
+}
+
+section {
+    &.success {
+        .loading-spinner {
+            &:before,
+            &:after {
+                animation: on-pause-success-loading ease-in-out 0.3s;
+                animation-fill-mode: forwards;
+            }
+            &::before {
+                @include background-image-thumb-up($color-confirm-dark);
+                z-index: 1;
+            }
+            &::after {
+                z-index: 0;
+            }
+        }
+        .loading-msg span {
+            color: var(--color-on-confirm);
+            &:first-child,
+            &:last-child {
+                display: none;
+            }
+            &:nth-child(2) {
+                display: flex;
+            }
+        }
+    }
+
+    &.error {
+        .loading-spinner {
+            &:before,
+            &:after {
+                animation: on-pause-error-loading ease-in-out 0.3s;
+                animation-fill-mode: forwards;
+            }
+            &::before {
+                z-index: 0;
+            }
+            &::after {
+                @include background-image-thumb-down($color-error-dark);
+                z-index: 1;
+            }
+        }
+        .loading-msg span {
+            color: var(--color-on-error);
+            &:first-child,
+            &:nth-child(1) {
+                display: none;
+            }
+            &:last-child {
+                display: flex;
+            }
+        }
+    }
+
+    .loading-msg {
+        margin: 1rem;
+        span {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: nowrap;
+            align-items: center;
+            font-weight: 500;
+            font-size: medium;
+            text-transform: capitalize;
+    
+            &:nth-child(n + 2) {
+                display: none;
+            }
+        }
+    }
+}
+
+@keyframes on-pause-success-loading {
+    to {
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--color-on-confirm);
+    }
+}
+
+@keyframes on-pause-error-loading {
+    to {
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--color-on-error);
+    }
+}
+
+@keyframes move-loading {
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes cover-loading {
+    from,
+    49.9% {
+        z-index: 1;
+    }
+    50.1%,
+    to {
+        z-index: 0;
+    }
+}

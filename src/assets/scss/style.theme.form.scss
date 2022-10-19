@@ -1,10 +1,9 @@
-@import './style.theme.form.progress.scss';
-@import './mixin.animations.scss';
+@import "./mixin.animations.scss";
 
 section {
   min-width: 600px;
   width: 50vw;
-  min-height: 50vh;
+  min-height: 42vh;
   height: auto;
   position: absolute;
   display: block;
@@ -21,13 +20,27 @@ section {
   user-select: none;
   @include transform(translate(-50%, -50%));
 
+  &.error {
+    background: var(--color-error);
+    h1 {
+      color: var(--color-on-error);
+    }
+  }
+
+  &.success {
+    background: var(--color-confirm);
+    h1 {
+      color: var(--color-on-error);
+    }
+  }
+
   h1 {
     padding: 16px;
   }
 
   form {
     display: flex;
-    width: 300%;
+    width: 400%;
     @include transition(all 0.3s ease-in-out);
 
     fieldset {

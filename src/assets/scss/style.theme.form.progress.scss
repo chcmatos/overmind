@@ -1,4 +1,4 @@
-@import './mixin.animations.scss';
+@import "./mixin.animations.scss";
 
 .progress-bar {
   display: flex;
@@ -54,4 +54,50 @@
       margin-inline: 4px;
     }
   }
+}
+
+section{
+  &.error {
+    .step {
+      .circle {
+        border-color: var(--color-on-error);
+  
+        &.active {
+          border-color: var(--color-on-error);
+          background-color: var(--color-on-accent);
+          ~ span {
+            color: var(--color-on-error);
+          }
+        }
+        span, ~ span {
+          color: var(--color-on-error);
+        }
+        div {
+          color: var(--color-error);
+        }
+      }
+    }
+  }
+  &.success {
+    .step {
+      .circle {
+        border-color: var(--color-on-confirm);
+  
+        &.active {
+          border-color: var(--color-on-confirm);
+          background-color: var(--color-on-accent);
+          ~ span {
+            color: var(--color-on-confirm);
+          }
+        }
+        span, ~ span {
+          color: var(--color-on-confirm);
+        }
+        div {
+          color: var(--color-confirm);
+        }
+      }
+    }
+  }
+  
 }

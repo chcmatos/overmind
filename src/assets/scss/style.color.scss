@@ -24,6 +24,7 @@ body.theme-light {
   --color-on-surface: #{$color-on-surface-light};
   --color-on-accent: #{$color-on-accent-light};
   --color-on-error: #{$color-on-error-light};
+  --color-on-confirm: #{$color-on-confirm-light};
 }
 
 :root {
@@ -40,6 +41,8 @@ body.theme-light {
     --color-on-background: #{$color-on-background-dark};
     --color-on-surface: #{$color-on-surface-dark};
     --color-on-accent: #{$color-on-accent-dark};
+    --color-on-error: #{$color-on-error-dark};
+    --color-on-confirm: #{$color-on-confirm-dark};
   }
 }
 
@@ -63,5 +66,7 @@ body {
     --color-on-background: #{$color-on-background-dark};
     --color-on-surface: #{$color-on-surface-dark};
     --color-on-accent: #{$color-on-accent-dark};
+    --color-on-error: #{$color-on-error-dark};
+    --color-on-confirm: #{$color-on-confirm-dark};
   }
 }

@@ -60,7 +60,7 @@
         <!--#endregion-->
 
         <!-- #region form-->
-        <form id="signup-form" method="post" action="/">
+        <form id="signup-form">
           <fieldset>
             <!--#region first name (given-name)-->
             <input
@@ -183,6 +183,14 @@
               <input type="submit" value="enviar" />
             </div>
             <!--#endregion-->
+          </fieldset>
+          <fieldset>
+            <div class="loading-spinner"></div>
+            <div class="loading-msg">
+              <span>Aguarde...</span>
+              <span>Mensagem enviada com sucesso! :)</span>
+              <span>Ocorreu um erro! Tente novamente. :(</span>
+            </div>
           </fieldset>
         </form>
         <!--#endregion-->
