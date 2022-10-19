@@ -5,22 +5,25 @@ import steps from "./form.steps.circle.js";
 
 export default {
     setup: () => {
-        console.log(mail);
         let currFieldSetIndex = 0;
         const form = document.getElementById("signup-form");
         const fieldsetArr = Array.from(form.getElementsByTagName("fieldset"));
 
         const forward = (index) => {
             currFieldSetIndex = (index || currFieldSetIndex) + 1;
-            form.style.marginLeft = (currFieldSetIndex * -100) + '%';
+            navigate(currFieldSetIndex);
             steps.check(currFieldSetIndex);
         };
 
         const backward = (index) => {
             steps.uncheck(currFieldSetIndex);
             currFieldSetIndex = (index || currFieldSetIndex) - 1;
-            form.style.marginLeft = (currFieldSetIndex * -100) + '%';            
+            navigate(currFieldSetIndex);
         };
+
+        const navigate = (index) => {
+            form.style.marginLeft = (index * -100) + '%';
+        }
 
         const setupBtn = (fieldset, query, callback) => {
             let btn = fieldset.querySelector(query);
@@ -54,14 +57,29 @@ export default {
                 e.preventDefault();
                 if (isAllRequiredInputFieldsValid()) {
                     forward();
-                    // mail.send(form).then(resp => {
-                    //     console.log(resp);
-                    // }).catch(e => {
-                    //     console.error(e);
-                    // });
+                    mail.send(form)
+                        .then(_ => sentFormFeedback('success'))
+                        .catch(_ => sentFormFeedback('error'));
                 }
                 return false;
             };
+        };
+
+        const setupReset = (form) => {
+            form.onreset = () => {
+                let section = document.querySelector('section');
+                section.classList.remove('error');
+                section.classList.remove('success');
+                steps.uncheckReduce(currFieldSetIndex);
+                navigate(currFieldSetIndex = 0);
+                selectFirstField(form);
+            }
+        };
+
+        const sentFormFeedback = (type, timeout) => {
+            let section = document.querySelector('section');
+            return (section.classList.contains(type) || section.classList.add(type)) &
+                setTimeout(() => form.reset(), timeout || 2000);
         };
 
         const selectInputField = (input, timeout) => {
@@ -124,6 +142,11 @@ export default {
             }
         };
 
+        const selectFirstField = (form) => {
+            const field = form.querySelector("input:required");
+            selectInputField(field);
+        };
+
         const isLastInputSetFieldSelected = (index, currentField) => {
             const fieldset = fieldsetArr[index];
             const fields = Array.from(fieldset.querySelectorAll("input:required"));
@@ -158,5 +181,6 @@ export default {
             setupPrevBtn(fieldset, index);
         }
         setupSubmit(form);
+        setupReset(form);
     }
 };
