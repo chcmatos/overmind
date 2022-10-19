@@ -6,9 +6,11 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --omit-source-map-url ./assets/scss/ -o ./assets/css/",
-    "scss-w": "node-sass -w --omit-source-map-url ./assets/scss/ -o ./assets/css",
-    "watch": "npx live-server | (npm run scss-w || watch)"
+    "style": "gulp style",
+    "script": "gulp script",
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "build-serve": "gulp"
   },
   "repository": {
     "type": "git",
@@ -45,8 +47,6 @@
     "gulp-sass": "^5.1.0",
     "gulp-trim": "^1.0.2",
     "gulp-uglify-es": "^3.0.0",
-    "live-server": "^1.1.0",
-    "node-sass": "^7.0.3",
     "sass": "^1.55.0"
   },
   "engines": {

@@ -36,5 +36,7 @@
   ],
   "html.autoClosingTags": true,
   "jshint.enable": true,
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5503,
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.root": "/dist"
 }

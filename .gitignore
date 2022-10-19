@@ -2,9 +2,9 @@
 /dist
 /node_modules
 package-lock.json
-assets/.DS_Store
-assets/**/.DS_Store
-assets/**/**/.DS_Store
-assets/video/.DS_Store
-assets/css/**.css
-assets/css
+src/assets/.DS_Store
+src/assets/**/.DS_Store
+src/assets/**/**/.DS_Store
+src/assets/video/.DS_Store
+src/assets/css/**.css
+src/assets/css
