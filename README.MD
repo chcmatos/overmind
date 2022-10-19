@@ -35,3 +35,6 @@ Bellow credits for UI/UX elements.
 - Day/Night Background Animation
   - **Author:** Hunan
   - **See more in:** [Dribble Project](https://dribbble.com/shots/10957085-Campfire-Day-Night)
+
+
+TODO: MUST IMPLEMENT MEDIA QUERY
