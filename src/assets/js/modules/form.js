@@ -1,5 +1,6 @@
 import { isEnterKey, isTabKey } from "./mask.keys.js";
 import validators from "./validators.js";
+import mail from "./form.mail.js";
 
 export default {
     setup: () => {
@@ -53,14 +54,15 @@ export default {
 
         const setupSubmit = (form) => {
             form.onsubmit = (e) => {
-                for (let i in fieldsetArr) {
-                    if (!isAllRequiredInputFieldFilled(i)) {
-                        selectNonValidFieldRequired(i);
-                        e.preventDefault();
-                        return false;
-                    }
+                e.preventDefault();
+                if (isAllRequiredInputFieldsValid()) {
+                    mail.send(form).then(resp => {
+                        console.log(resp);
+                    }).catch(e => {
+                        console.error(e);
+                    });
                 }
-                return true;
+                return false;
             };
         };
 
@@ -97,6 +99,16 @@ export default {
             const fields = fieldset.querySelectorAll("input:required");
             for (let field of fields) {
                 if (!isValidInputField(field)) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        const isAllRequiredInputFieldsValid = () => {
+            for (let i in fieldsetArr) {
+                if (!isAllRequiredInputFieldFilled(i)) {
+                    selectNonValidFieldRequired(i);
                     return false;
                 }
             }

@@ -8,7 +8,7 @@ import uglifyES from 'gulp-uglify-es';
 import base64 from 'gulp-base64-inline';
 import concat from 'gulp-concat';
 import trim from 'gulp-trim';
-import imagemin from 'gulp-imagemin';
+//import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
 import os from 'os';
 
