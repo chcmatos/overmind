@@ -1,15 +1,29 @@
 # Overmind Test
 
-This is a sample project for build a pure web frontend form using pure **_HTML5_**, **_JavaScript_** and 
+![image](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+
+![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+
+![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
+![image](https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+
+![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+![image](https://img.shields.io/badge/Gulp-CF4647?style=for-the-badge&logo=gulp&logoColor=white)
+
+![image](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+
+This is a sample project for build a pure web frontend form using pure **_HTML5_**, **_JavaScript_** and
 **_CSS3/SCSS_** and applying theme **_day/night_** concept.
 
 ## Setup
 
 - [x] First of all you must have to be installed [node.js](https://nodejs.org/pt-br/)
-- [x] Open project home dir `overmind` using _VSCode IDE_ or _OS Terminal_ and execute the follow command `npm run setup` (open `package.json` file to see more about project scripts). This command will setup and run the project watching any change. 
-
+- [x] Open project home dir `overmind` using _VSCode IDE_ or _OS Terminal_ and execute the follow command `npm run setup` (open `package.json` file to see more about project scripts). This command will setup and run the project watching any change.
 
 ### Scripts
+
 #### By NPM
 
 Open `package.json` to see more about it.
@@ -36,5 +50,4 @@ Bellow credits for UI/UX elements.
   - **Author:** Hunan
   - **See more in:** [Dribble Project](https://dribbble.com/shots/10957085-Campfire-Day-Night)
 
-
-TODO: MUST IMPLEMENT MEDIA QUERY
+‼️ TODO: MUST IMPLEMENT MEDIA QUERY
